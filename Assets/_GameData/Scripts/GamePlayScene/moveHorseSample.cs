@@ -20,7 +20,7 @@ public class moveHorseSample : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && !Input.GetMouseButtonUp(0))
         {
             if (Input.mousePosition.x < Screen.width / 2)
             {

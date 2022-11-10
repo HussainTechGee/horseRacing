@@ -4,23 +4,37 @@ using UnityEngine;
 
 public class BotsFreezingSkill : MonoBehaviour
 {
+    public static BotsFreezingSkill botsFreezingSkill;
     public BotPlyers bot;
     public moveHorseSample player;
-    public float freeztimer = 1;
-    bool isfreez;
-    void Start()
+    public float freeztimer = 1, freecooldown = 5;
+    public bool isfreez;
+    private void Update()
     {
+        if (isfreez)
+        {
+            freeztimer -= Time.deltaTime;
+            freecooldown += Time.deltaTime;
+        }
+        if (freeztimer <= -1)
+        {
+            freeztimer = 1;
+            player.freez = false;
+            bot.freez = false;
 
+        }
+        if (freecooldown >= 5)
+        {
+            isfreez = false;
+        }
     }
-
-
-    void Update()
+    public void freez()
     {
-
-    }
-    void freez()
-    {
-        player.freez = true;
-        bot.freez = true;
+        {
+            player.freez = true;
+            bot.freez = true;
+            isfreez = true;
+            freecooldown = 0;
+        }
     }
 }

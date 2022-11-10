@@ -5,9 +5,11 @@ using PathCreation;
 
 public class BotPlyers : MonoBehaviour
 {
+    public static botScript instance;
     public PathCreator pathCreator;
     public float speed;
     float distancetravled;
+    public bool freez;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,9 +19,11 @@ public class BotPlyers : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        distancetravled += speed * Time.deltaTime;
-        transform.position = pathCreator.path.GetPointAtDistance(distancetravled);
-        transform.rotation = pathCreator.path.GetRotationAtDistance(distancetravled);
-        // transform.Translate(pathCreator.path.GetPointAtDistance(distancetravled).x, pathCreator.path.GetPointAtDistance(distancetravled).y, pathCreator.path.GetPointAtDistance(distancetravled).z);
+        if (!freez)
+        {
+            distancetravled += speed * Time.deltaTime;
+            transform.position = pathCreator.path.GetPointAtDistance(distancetravled);
+            transform.rotation = pathCreator.path.GetRotationAtDistance(distancetravled);
+        }
     }
 }

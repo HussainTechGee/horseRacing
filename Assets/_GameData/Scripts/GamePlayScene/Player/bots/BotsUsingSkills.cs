@@ -17,11 +17,17 @@ public class BotsUsingSkills : MonoBehaviour
     }
     private IEnumerator useSkill()
     {
-        yield return new WaitForSeconds(5f);
+        float wait = Random.Range(5, 15);
+        yield return new WaitForSeconds(wait);
 
         if (!GetComponent<BotsFreezingSkill>().isfreez)
         {
             GetComponent<BotsFreezingSkill>().freez();
+        }
+
+        if (!GetComponent<BotsBoostingSkill>().isboost)
+        {
+            GetComponent<BotsBoostingSkill>().boost();
         }
         StartCoroutine(useSkill());
     }

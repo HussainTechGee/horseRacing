@@ -8,7 +8,7 @@ public class BotsBoostingSkill : MonoBehaviour
     public BotPlyers bot;
     public moveHorseSample player;
     public float boosttimer = 1;
-    bool isboost;
+    public bool isboost;
     private void Update()
     {
         if (isboost)

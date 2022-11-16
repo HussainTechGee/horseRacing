@@ -15,6 +15,9 @@ TagManager:
   - Climb
   - Stair
   - fence
+  - finish
+  - leftcol
+  - rightcol
   layers:
   - Default
   - TransparentFX

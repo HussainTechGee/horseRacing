@@ -8,10 +8,9 @@ public class moveHorseSample : MonoBehaviour
 {
     public static moveHorseSample instance;
     public Animator HorseController, RiderController;
-    public Rigidbody rb;
     public GameObject horsewithrider;
     public float speed, turnspeed, turnduration, boostfactor;
-    public bool freez, boost, win;
+    public bool freez, boost, win, incollider;
     bool start, sprint;
 
     void Start()
@@ -52,7 +51,8 @@ public class moveHorseSample : MonoBehaviour
                     //     RiderController.SetTrigger("turnlefts");
                     // }
                     // horsewithrider.transform.DORotate(new Vector3(0, horsewithrider.transform.rotation.eulerAngles.y - turnspeed, 0), turnduration);
-                    turnleft();
+                    if (!incollider)
+                    { turnleft(1); }
                 }
                 else
                 {
@@ -68,7 +68,8 @@ public class moveHorseSample : MonoBehaviour
                     //     RiderController.SetTrigger("turnrights");
                     // }
                     // horsewithrider.transform.DORotate(new Vector3(0, horsewithrider.transform.rotation.eulerAngles.y + turnspeed, 0), turnduration);
-                    turnright();
+                    if (!incollider)
+                    { turnright(1); }
                 }
             }
             if (Input.GetMouseButtonUp(0))
@@ -80,6 +81,7 @@ public class moveHorseSample : MonoBehaviour
             }
 
             Movement();
+
         }
     }
     public void turn(string direction)
@@ -87,7 +89,7 @@ public class moveHorseSample : MonoBehaviour
         HorseController.SetTrigger(direction);
         RiderController.SetTrigger(direction);
     }
-    public void turnleft()
+    public void turnleft(float factor)
     {
         if (!sprint)
         {
@@ -97,9 +99,9 @@ public class moveHorseSample : MonoBehaviour
         {
             RiderController.SetTrigger("turnlefts");
         }
-        horsewithrider.transform.DORotate(new Vector3(0, horsewithrider.transform.rotation.eulerAngles.y - turnspeed, 0), turnduration);
+        horsewithrider.transform.DORotate(new Vector3(0, horsewithrider.transform.rotation.eulerAngles.y - turnspeed * factor, 0), turnduration / factor);
     }
-    public void turnright()
+    public void turnright(float factor)
     {
         if (!sprint)
         {
@@ -109,7 +111,7 @@ public class moveHorseSample : MonoBehaviour
         {
             RiderController.SetTrigger("turnrights");
         }
-        horsewithrider.transform.DORotate(new Vector3(0, horsewithrider.transform.rotation.eulerAngles.y + turnspeed, 0), turnduration);
+        horsewithrider.transform.DORotate(new Vector3(0, horsewithrider.transform.rotation.eulerAngles.y + turnspeed * factor, 0), turnduration / factor);
     }
     public void Movement()
     {
@@ -118,14 +120,14 @@ public class moveHorseSample : MonoBehaviour
             if (!freez && !boost)
             {
                 horsewithrider.transform.Translate(0, 0, 0 + speed * Time.deltaTime);
-                HorseController.speed = 1.2f;
-                RiderController.speed = 1.2f;
+                HorseController.speed = 1f;
+                RiderController.speed = 1f;
             }
             else if (boost && !freez)
             {
                 horsewithrider.transform.Translate(0, 0, 0 + speed * boostfactor * Time.deltaTime);
-                HorseController.speed = 1.6f;
-                RiderController.speed = 1.6f;
+                HorseController.speed = 1.3f;
+                RiderController.speed = 1.3f;
             }
             else if (freez)
             {

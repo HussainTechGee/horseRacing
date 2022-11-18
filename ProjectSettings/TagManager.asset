@@ -18,6 +18,8 @@ TagManager:
   - finish
   - leftcol
   - rightcol
+  - land
+  - foot
   layers:
   - Default
   - TransparentFX

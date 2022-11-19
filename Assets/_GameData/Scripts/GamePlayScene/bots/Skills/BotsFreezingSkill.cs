@@ -31,8 +31,10 @@ public class BotsFreezingSkill : MonoBehaviour
     public void freez()
     {
         {
-            player.freez = true;
-            bot.freez = true;
+            if (!player.shield)
+            { player.freez = true; }
+            if (!bot.shield)
+            { bot.freez = true; }
             isfreez = true;
             freecooldown = 0;
         }

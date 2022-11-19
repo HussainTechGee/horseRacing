@@ -3,7 +3,37 @@ guid: 192a445f5ccfeba4abd2cd2fa88fa691
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gate_Number
+    second: {fileID: 2100000, guid: 6171405c6bf24db49b6da405c2293b65, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Starting_Gate
+    second: {fileID: 2100000, guid: 6158cc13a3dfab745a6d027d82363ae0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Starting_Gate1
+    second: {fileID: 2100000, guid: 9bb4168538b487a4eadcc44530f37296, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Starting_Gate2
+    second: {fileID: 2100000, guid: 7ee0fe2f16d09754cb00cf5442439d21, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Starting_Gate3
+    second: {fileID: 2100000, guid: f0c1e10cb88c92b489a86f2fdeddb3af, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Starting_Gate4
+    second: {fileID: 2100000, guid: e21de560ccc484c4ea259d4731b3d3e0, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -85,7 +115,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.01
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

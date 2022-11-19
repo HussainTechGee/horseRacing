@@ -5,8 +5,6 @@ using UnityEngine;
 public class BotsBoostingSkill : MonoBehaviour
 {
     public static BotsBoostingSkill botsBoostingSkill;
-    public BotPlyers bot;
-    public moveHorseSample player;
     public float boosttimer = 1;
     public bool isboost;
     private void Update()
@@ -18,13 +16,14 @@ public class BotsBoostingSkill : MonoBehaviour
         if (boosttimer <= -1)
         {
             boosttimer = 1;
-            BotPlyers.instance.boost = false;
+            GetComponent<BotPlyers>().boost = false;
+
             isboost = false;
         }
     }
     public void boost()
     {
-        BotPlyers.instance.boost = true;
+        GetComponent<BotPlyers>().boost = true;
         isboost = true;
     }
 }

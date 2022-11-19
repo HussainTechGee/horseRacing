@@ -6,6 +6,8 @@ public class BotsUsingSkills : MonoBehaviour
 {
 
     public static BotsUsingSkills botsUsingSkills;
+    public bool canusefreezSkill, canuseBoostSkill, canuseshieldskill;
+
     // public float skillColldownTime;
     void Start()
     {
@@ -17,17 +19,32 @@ public class BotsUsingSkills : MonoBehaviour
     }
     private IEnumerator useSkill()
     {
-        float wait = Random.Range(5, 15);
+        float wait = Random.Range(5, 10);
+
         yield return new WaitForSeconds(wait);
-
-        if (!GetComponent<BotsFreezingSkill>().isfreez)
+        if (canusefreezSkill)
         {
-            GetComponent<BotsFreezingSkill>().freez();
+            if (!GetComponent<BotsFreezingSkill>().isfreez)
+            {
+                // yield return new WaitForSeconds(wait);
+                GetComponent<BotsFreezingSkill>().freez();
+                canusefreezSkill = false;
+            }
         }
-
-        if (!GetComponent<BotsBoostingSkill>().isboost)
+        else if (canuseBoostSkill)
         {
-            GetComponent<BotsBoostingSkill>().boost();
+            if (!GetComponent<BotsBoostingSkill>().isboost)
+            {
+                // yield return new WaitForSeconds(wait);
+                GetComponent<BotsBoostingSkill>().boost();
+                canuseBoostSkill = false;
+            }
+        }
+        else if (canuseshieldskill)
+        {
+
+            GetComponent<BotsShieldSkill>().onclickShield();
+            canuseshieldskill = false;
         }
         StartCoroutine(useSkill());
     }

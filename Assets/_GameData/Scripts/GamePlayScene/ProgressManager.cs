@@ -7,10 +7,10 @@ using UnityEngine.UI;
 public class ProgressManager : MonoBehaviour
 {
     public Slider slider;
-    public Transform pathPoints, Player;
+    public Transform pathPoints, Player, pathPoints2;
     private Transform endPoint, startPoint;
     Vector3 oldpos;
-    private float maxdistance, distancetraveled;
+    private float maxdistance, distancetraveled, dis1, dis2;
 
 
     void Start()
@@ -21,10 +21,16 @@ public class ProgressManager : MonoBehaviour
             {
                 endPoint = pathPoints.GetChild(i + 1);
                 startPoint = pathPoints.GetChild(i);
-                maxdistance += Vector3.Distance(endPoint.position, startPoint.position);
+                dis1 += Vector3.Distance(endPoint.position, startPoint.position);
+            }
+            if (i < pathPoints2.childCount - 1)
+            {
+                endPoint = pathPoints.GetChild(i + 1);
+                startPoint = pathPoints.GetChild(i);
+                dis2 += Vector3.Distance(endPoint.position, startPoint.position);
             }
         }
-
+        maxdistance = (dis1 + dis2) / 2;
         oldpos = Player.transform.position;
         slider.value = (getDistance() / maxdistance);
     }

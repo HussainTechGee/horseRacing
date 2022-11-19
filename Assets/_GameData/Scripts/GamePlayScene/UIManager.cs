@@ -7,11 +7,17 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
 
-    public GameObject countingPanel;
+    public static UIManager instance;
+    public GameObject countingPanel, starting_gates;
     public Sprite[] counting;
+    public GameObject[] skillButton;
 
     private void Start()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
         StartCoroutine(timePanel());
     }
 
@@ -32,8 +38,8 @@ public class UIManager : MonoBehaviour
         countingPanel.transform.GetChild(0).GetComponent<Image>().sprite = counting[2];
         yield return new WaitForSeconds(.9f);
         countingPanel.SetActive(false);
-        // yield return new WaitForSeconds(1);
-        // SoundManager.instance.Play("step");
+        yield return new WaitForSeconds(3);
+        starting_gates.SetActive(false);
     }
 
 }

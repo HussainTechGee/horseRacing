@@ -8,9 +8,9 @@ public class moveHorseSample : MonoBehaviour
 {
     public static moveHorseSample instance;
     public Animator HorseController, RiderController;
-    public GameObject horsewithrider;
+    public GameObject horsewithrider, shieldobject, IcecubeObj, boostObj;
     public float speed, turnspeed, turnduration, boostfactor;
-    public bool freez, boost, win, incollider;
+    public bool freez, boost, win, incollider, shield;
     bool start, sprint;
 
     void Start()
@@ -40,35 +40,12 @@ public class moveHorseSample : MonoBehaviour
             {
                 if (Input.mousePosition.x < Screen.width / 2)
                 {
-                    // Debug.Log("left");
-                    // HorseController.SetTrigger("turnleft");
-                    // if (!sprint)
-                    // {
-                    //     RiderController.SetTrigger("turnleft");
-                    // }
-                    // else
-                    // {
-                    //     RiderController.SetTrigger("turnlefts");
-                    // }
-                    // horsewithrider.transform.DORotate(new Vector3(0, horsewithrider.transform.rotation.eulerAngles.y - turnspeed, 0), turnduration);
-                    if (!incollider)
+                    if (!incollider && !freez)
                     { turnleft(1); }
                 }
                 else
                 {
-                    // Debug.Log("right");
-                    // HorseController.SetTrigger("turnright");
-
-                    // if (!sprint)
-                    // {
-                    //     RiderController.SetTrigger("turnright");
-                    // }
-                    // else
-                    // {
-                    //     RiderController.SetTrigger("turnrights");
-                    // }
-                    // horsewithrider.transform.DORotate(new Vector3(0, horsewithrider.transform.rotation.eulerAngles.y + turnspeed, 0), turnduration);
-                    if (!incollider)
+                    if (!incollider && !freez)
                     { turnright(1); }
                 }
             }
@@ -129,12 +106,48 @@ public class moveHorseSample : MonoBehaviour
                 HorseController.speed = 1.3f;
                 RiderController.speed = 1.3f;
             }
-            else if (freez)
+            else if (freez && !shield)
             {
                 horsewithrider.transform.Translate(0, 0, 0 + (speed * Time.deltaTime) * 0);
                 HorseController.speed = 0f;
                 RiderController.speed = 0f;
             }
+            else
+            {
+                horsewithrider.transform.Translate(0, 0, 0 + speed * Time.deltaTime);
+                HorseController.speed = 1f;
+                RiderController.speed = 1f;
+            }
+        }
+        else
+        {
+            HorseController.SetTrigger("idle");
+            RiderController.SetTrigger("idle");
+            StartCoroutine(cutSceneScript.instance.onWin());
+        }
+        if (shield)
+        {
+            shieldobject.SetActive(true);
+        }
+        else
+        {
+            shieldobject.SetActive(false);
+        }
+        if (freez)
+        {
+            IcecubeObj.SetActive(true);
+        }
+        else
+        {
+            IcecubeObj.SetActive(false);
+        }
+        if (boost)
+        {
+            boostObj.SetActive(true);
+        }
+        else
+        {
+            boostObj.SetActive(false);
         }
 
     }

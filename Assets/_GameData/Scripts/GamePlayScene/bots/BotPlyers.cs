@@ -10,7 +10,8 @@ public class BotPlyers : MonoBehaviour
     public PathCreator pathCreator;
     public float speed, boostFactor;
     float distancetravled;
-    public bool freez, boost, win;
+    public bool freez, boost, win, shield;
+    public GameObject shieldobj, icecubeObj, boostObj;
     bool start = true;
     // Start is called before the first frame update
     void Start()
@@ -52,15 +53,50 @@ public class BotPlyers : MonoBehaviour
                     transform.rotation = pathCreator.path.GetRotationAtDistance(distancetravled);
                     botAnimator.speed = 1.2f;
                 }
-                else if (freez)
+                else if (freez && !shield)
                 {
                     distancetravled += speed * 0 * Time.deltaTime;
-                    transform.position = pathCreator.path.GetPointAtDistance(
-                        distancetravled);
+                    transform.position = pathCreator.path.GetPointAtDistance(distancetravled);
                     transform.rotation = pathCreator.path.GetRotationAtDistance(distancetravled);
                     botAnimator.speed = 0f;
                 }
+                else
+                {
+                    distancetravled += speed * Time.deltaTime;
+                    transform.position = pathCreator.path.GetPointAtDistance(distancetravled);
+                    transform.rotation = pathCreator.path.GetRotationAtDistance(distancetravled);
+                    botAnimator.speed = 1f;
+                }
             }
+        }
+        else
+        {
+            botAnimator.SetTrigger("idle");
+            RiderController.SetTrigger("idle");
+        }
+        if (shield)
+        {
+            shieldobj.SetActive(true);
+        }
+        else
+        {
+            shieldobj.SetActive(false);
+        }
+        if (freez)
+        {
+            icecubeObj.SetActive(true);
+        }
+        else
+        {
+            icecubeObj.SetActive(false);
+        }
+        if (boost)
+        {
+            boostObj.SetActive(true);
+        }
+        else
+        {
+            boostObj.SetActive(false);
         }
     }
 }

@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
 
 public class Colliders : MonoBehaviour
 {
@@ -28,6 +30,24 @@ public class Colliders : MonoBehaviour
         else if (other.gameObject.CompareTag("land"))
         {
             rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
+        }
+        else if (other.gameObject.CompareTag("freez"))
+        {
+            UIManager.instance.skillButton[0].SetActive(true);
+            other.gameObject.SetActive(false);
+            StartCoroutine(activeSkillPick(other.gameObject));
+        }
+        else if (other.gameObject.CompareTag("boost"))
+        {
+            UIManager.instance.skillButton[1].SetActive(true);
+            other.gameObject.SetActive(false);
+            StartCoroutine(activeSkillPick(other.gameObject));
+        }
+        else if (other.gameObject.CompareTag("shield"))
+        {
+            UIManager.instance.skillButton[2].SetActive(true);
+            other.gameObject.SetActive(false);
+            StartCoroutine(activeSkillPick(other.gameObject));
         }
     }
     private void OnCollisionStay(Collision other)
@@ -64,5 +84,11 @@ public class Colliders : MonoBehaviour
         {
             gameObject.transform.parent.GetComponent<moveHorseSample>().turnleft(1.2f);
         }
+    }
+
+    private IEnumerator activeSkillPick(GameObject current)
+    {
+        yield return new WaitForSeconds(1f);
+        current.gameObject.SetActive(true);
     }
 }

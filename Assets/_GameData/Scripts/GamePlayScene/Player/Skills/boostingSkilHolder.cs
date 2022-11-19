@@ -4,8 +4,17 @@ using UnityEngine;
 
 public class boostingSkilHolder : MonoBehaviour
 {
+    public static boostingSkilHolder instance;
     public float boosttimer = 1;
     bool boost;
+
+    private void Start()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
     private void Update()
     {
         if (boost)

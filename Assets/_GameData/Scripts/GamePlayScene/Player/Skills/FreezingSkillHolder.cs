@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class FreezingSkillHolder : MonoBehaviour
 {
+    public static FreezingSkillHolder instance;
     public BotPlyers[] players;
     bool freez;
     public float freeztimer = 1f;
 
     private void Start()
     {
-
+        if (instance == null)
+        {
+            instance = this;
+        }
     }
     private void Update()
     {
@@ -39,7 +43,8 @@ public class FreezingSkillHolder : MonoBehaviour
             for (int i = 0; i < players.Length; i++)
             {
 
-                players[i].freez = true;
+                if (!players[i].shield)
+                { players[i].freez = true; }
 
             }
             freez = true;

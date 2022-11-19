@@ -20,6 +20,7 @@ TagManager:
   - rightcol
   - land
   - foot
+  - shield
   layers:
   - Default
   - TransparentFX

@@ -13,11 +13,7 @@ public class Colliders : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("finish"))
-        {
-            gameObject.transform.parent.GetComponent<moveHorseSample>().win = true;
-        }
-        else if (other.gameObject.CompareTag("leftcol"))
+        if (other.gameObject.CompareTag("leftcol"))
         {
             gameObject.transform.parent.GetComponent<moveHorseSample>().turnright(1.2f);
             gameObject.transform.parent.GetComponent<moveHorseSample>().incollider = true;
@@ -74,6 +70,15 @@ public class Colliders : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("finish"))
+        {
+            gameObject.transform.parent.GetComponent<moveHorseSample>().win = true;
+            StartCoroutine(moveHorseSample.instance.playerWin());
+        }
+
+    }
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("leftcol"))

@@ -30,31 +30,39 @@ public class moveHorseSample : MonoBehaviour
         //sprint
         start = true;
         yield return new WaitForSeconds(2);
+        HorseController.SetTrigger("sprint");
+        RiderController.SetTrigger("sprint");
         sprint = true;
     }
     private void Update()
     {
         if (start)
         {
-            if (Input.GetMouseButton(0) && !Input.GetMouseButtonUp(0))
+            if (!win)
             {
-                if (Input.mousePosition.x < Screen.width / 2)
+                if (Input.GetMouseButton(0) && !Input.GetMouseButtonUp(0))
                 {
-                    if (!incollider && !freez)
-                    { turnleft(1); }
+                    if (sprint)
+                    {
+                        if (Input.mousePosition.x < Screen.width / 2)
+                        {
+                            if (!incollider && !freez)
+                            { turnleft(1); }
+                        }
+                        else
+                        {
+                            if (!incollider && !freez)
+                            { turnright(1); }
+                        }
+                    }
                 }
-                else
+                if (Input.GetMouseButtonUp(0))
                 {
-                    if (!incollider && !freez)
-                    { turnright(1); }
+                    if (!sprint)
+                        HorseController.SetTrigger("run");
+                    else
+                        HorseController.SetTrigger("sprint");
                 }
-            }
-            if (Input.GetMouseButtonUp(0))
-            {
-                if (!sprint)
-                    HorseController.SetTrigger("run");
-                else
-                    HorseController.SetTrigger("sprint");
             }
 
             Movement();
@@ -94,61 +102,66 @@ public class moveHorseSample : MonoBehaviour
     {
         if (!win)
         {
-            if (!freez && !boost)
+            if (!freez && !boost && !shield)
             {
                 horsewithrider.transform.Translate(0, 0, 0 + speed * Time.deltaTime);
-                HorseController.speed = 1f;
-                RiderController.speed = 1f;
+                HorseController.speed = 1.2f;
+                RiderController.speed = 1.2f;
+                shieldobject.SetActive(false);
+                IcecubeObj.SetActive(false);
+                boostObj.SetActive(false);
             }
             else if (boost && !freez)
             {
                 horsewithrider.transform.Translate(0, 0, 0 + speed * boostfactor * Time.deltaTime);
-                HorseController.speed = 1.3f;
-                RiderController.speed = 1.3f;
+                HorseController.speed = 1.6f;
+                RiderController.speed = 1.6f;
+                boostObj.SetActive(true);
             }
-            else if (freez && !shield)
+            else if (freez && !shield && !boost)
             {
                 horsewithrider.transform.Translate(0, 0, 0 + (speed * Time.deltaTime) * 0);
                 HorseController.speed = 0f;
                 RiderController.speed = 0f;
+                IcecubeObj.SetActive(true);
             }
-            else
+
+            else if (boost && shield)
+            {
+                horsewithrider.transform.Translate(0, 0, 0 + speed * boostfactor * Time.deltaTime);
+                HorseController.speed = 1.6f;
+                RiderController.speed = 1.6f;
+                boostObj.SetActive(true);
+                shieldobject.SetActive(true);
+                IcecubeObj.SetActive(false);
+            }
+            else if (shield)
             {
                 horsewithrider.transform.Translate(0, 0, 0 + speed * Time.deltaTime);
                 HorseController.speed = 1f;
                 RiderController.speed = 1f;
+                shieldobject.SetActive(true);
+                IcecubeObj.SetActive(false);
+            }
+            else if (freez && boost)
+            {
+                horsewithrider.transform.Translate(0, 0, 0 + (speed * Time.deltaTime) * 0);
+                HorseController.speed = 0f;
+                RiderController.speed = 0f;
+                IcecubeObj.SetActive(true);
+                boostObj.SetActive(false);
             }
         }
         else
         {
-            HorseController.SetTrigger("idle");
-            RiderController.SetTrigger("idle");
-            StartCoroutine(cutSceneScript.instance.onWin());
-        }
-        if (shield)
-        {
-            shieldobject.SetActive(true);
-        }
-        else
-        {
+            horsewithrider.transform.Translate(0, 0, 0 + speed * Time.deltaTime);
+            HorseController.speed = 1f;
+            RiderController.speed = 1f;
             shieldobject.SetActive(false);
-        }
-        if (freez)
-        {
-            IcecubeObj.SetActive(true);
-        }
-        else
-        {
             IcecubeObj.SetActive(false);
-        }
-        if (boost)
-        {
-            boostObj.SetActive(true);
-        }
-        else
-        {
             boostObj.SetActive(false);
         }
+
 
     }
 
@@ -156,5 +169,28 @@ public class moveHorseSample : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+    bool alreadychecked;
 
+    public IEnumerator playerWin()
+    {
+        if (!alreadychecked)
+        {
+            StartCoroutine(cutSceneScript.instance.onWin());
+            speed /= 2;
+            HorseController.SetTrigger("walk");
+            RiderController.SetTrigger("walk");
+            alreadychecked = true;
+        }
+        yield return new WaitForEndOfFrame();
+        if (speed > 0)
+        {
+            speed -= 0.006f;
+            StartCoroutine(playerWin());
+        }
+        else
+        {
+            HorseController.SetTrigger("idle");
+            RiderController.SetTrigger("idle");
+        }
+    }
 }

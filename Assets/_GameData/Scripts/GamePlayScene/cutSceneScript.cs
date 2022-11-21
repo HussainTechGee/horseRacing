@@ -17,7 +17,7 @@ public class cutSceneScript : MonoBehaviour
     }
     public IEnumerator onWin()
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(1f);
         playercamera.SetActive(false);
         blackpanel.SetActive(true);
         yield return new WaitForSeconds(.2f);
@@ -25,7 +25,7 @@ public class cutSceneScript : MonoBehaviour
         yield return new WaitForSeconds(.5f);
         winpanel.transform.GetChild(1).gameObject.SetActive(true);
         yield return new WaitForSeconds(6f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     private IEnumerator AnimateScene()
     {

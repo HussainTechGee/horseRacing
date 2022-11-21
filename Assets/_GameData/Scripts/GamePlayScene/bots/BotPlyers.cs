@@ -31,6 +31,9 @@ public class BotPlyers : MonoBehaviour
         //sprint
         speed = speed * 4;
         start = true;
+        yield return new WaitForSeconds(2);
+        botAnimator.SetTrigger("sprint");
+        RiderController.SetTrigger("sprint");
     }
     // Update is called once per frame
     void Update()
@@ -39,19 +42,33 @@ public class BotPlyers : MonoBehaviour
         {
             if (start)
             {
-                if (!freez && !boost)
+                if (!freez && !boost && !shield)
                 {
                     distancetravled += speed * Time.deltaTime;
                     transform.position = pathCreator.path.GetPointAtDistance(distancetravled);
                     transform.rotation = pathCreator.path.GetRotationAtDistance(distancetravled);
-                    botAnimator.speed = 1f;
+                    botAnimator.speed = 1.2f;
+                    shieldobj.SetActive(false);
+                    boostObj.SetActive(false);
+                    icecubeObj.SetActive(false);
                 }
                 else if (!freez && boost)
                 {
                     distancetravled += speed * boostFactor * Time.deltaTime;
                     transform.position = pathCreator.path.GetPointAtDistance(distancetravled);
                     transform.rotation = pathCreator.path.GetRotationAtDistance(distancetravled);
+                    botAnimator.speed = 1.6f;
+                    boostObj.SetActive(true);
+                }
+                else if (shield && boost)
+                {
+                    distancetravled += speed * boostFactor * Time.deltaTime;
+                    transform.position = pathCreator.path.GetPointAtDistance(distancetravled);
+                    transform.rotation = pathCreator.path.GetRotationAtDistance(distancetravled);
                     botAnimator.speed = 1.2f;
+                    boostObj.SetActive(true);
+                    shieldobj.SetActive(true);
+                    icecubeObj.SetActive(false);
                 }
                 else if (freez && !shield)
                 {
@@ -59,44 +76,53 @@ public class BotPlyers : MonoBehaviour
                     transform.position = pathCreator.path.GetPointAtDistance(distancetravled);
                     transform.rotation = pathCreator.path.GetRotationAtDistance(distancetravled);
                     botAnimator.speed = 0f;
+                    icecubeObj.SetActive(true);
                 }
-                else
+                else if (shield)
                 {
                     distancetravled += speed * Time.deltaTime;
                     transform.position = pathCreator.path.GetPointAtDistance(distancetravled);
                     transform.rotation = pathCreator.path.GetRotationAtDistance(distancetravled);
-                    botAnimator.speed = 1f;
+                    botAnimator.speed = 1.2f;
+                    shieldobj.SetActive(true);
+                    icecubeObj.SetActive(false);
                 }
             }
         }
         else
         {
-            botAnimator.SetTrigger("idle");
-            RiderController.SetTrigger("idle");
-        }
-        if (shield)
-        {
-            shieldobj.SetActive(true);
-        }
-        else
-        {
+            distancetravled += speed * Time.deltaTime;
+            transform.position = pathCreator.path.GetPointAtDistance(distancetravled);
+            transform.rotation = pathCreator.path.GetRotationAtDistance(distancetravled);
+            botAnimator.speed = 1f;
             shieldobj.SetActive(false);
-        }
-        if (freez)
-        {
-            icecubeObj.SetActive(true);
-        }
-        else
-        {
+            boostObj.SetActive(false);
             icecubeObj.SetActive(false);
         }
-        if (boost)
+
+    }
+
+    bool alreadychecked;
+
+    public IEnumerator botWin()
+    {
+        if (!alreadychecked)
         {
-            boostObj.SetActive(true);
+            speed /= 2;
+            botAnimator.SetTrigger("walk");
+            RiderController.SetTrigger("walk");
+            alreadychecked = true;
+        }
+        yield return new WaitForEndOfFrame();
+        if (speed > 0)
+        {
+            speed -= 0.0004f;
+            StartCoroutine(botWin());
         }
         else
         {
-            boostObj.SetActive(false);
+            botAnimator.SetTrigger("idle");
+            RiderController.SetTrigger("idle");
         }
     }
 }

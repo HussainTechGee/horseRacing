@@ -11,6 +11,7 @@ public class CameraManager : MonoBehaviour
     Transform cameratransform;
     void Start()
     {
+        Application.targetFrameRate = 60;
         _mcamera = Camera.main;
         cameratransform = gameObject.transform;
     }

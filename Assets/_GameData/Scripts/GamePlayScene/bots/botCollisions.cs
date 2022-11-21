@@ -6,11 +6,7 @@ public class botCollisions : MonoBehaviour
 {
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("finish"))
-        {
-            gameObject.transform.parent.GetComponent<BotPlyers>().win = true;
-        }
-        else if (other.gameObject.CompareTag("freez"))
+        if (other.gameObject.CompareTag("freez"))
         {
             BotsUsingSkills.botsUsingSkills.canusefreezSkill = true;
             other.gameObject.SetActive(false);
@@ -28,6 +24,15 @@ public class botCollisions : MonoBehaviour
             other.gameObject.SetActive(false);
             StartCoroutine(activeSkillPick(other.gameObject));
         }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("finish"))
+        {
+            gameObject.transform.parent.GetComponent<BotPlyers>().win = true;
+            StartCoroutine(gameObject.transform.parent.GetComponent<BotPlyers>().botWin());
+        }
+
     }
     private IEnumerator activeSkillPick(GameObject current)
     {

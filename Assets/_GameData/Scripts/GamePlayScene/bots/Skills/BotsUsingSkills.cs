@@ -6,7 +6,7 @@ public class BotsUsingSkills : MonoBehaviour
 {
 
     public static BotsUsingSkills botsUsingSkills;
-    public bool canusefreezSkill, canuseBoostSkill, canuseshieldskill;
+    public bool canusefreezSkill, canuseBoostSkill, canuseshieldskill, canuserocket;
 
     // public float skillColldownTime;
     void Start()
@@ -45,6 +45,11 @@ public class BotsUsingSkills : MonoBehaviour
 
             GetComponent<BotsShieldSkill>().onclickShield();
             canuseshieldskill = false;
+        }
+        else if (canuserocket)
+        {
+            GetComponent<MissileSkillHolder>().onFire();
+            canuserocket = false;
         }
         StartCoroutine(useSkill());
     }

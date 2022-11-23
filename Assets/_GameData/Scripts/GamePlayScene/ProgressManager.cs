@@ -6,15 +6,22 @@ using UnityEngine.UI;
 
 public class ProgressManager : MonoBehaviour
 {
+    // public static ProgressManager instance;
+    public int position;
     public Slider slider;
     public Transform pathPoints, Player, pathPoints2;
     private Transform endPoint, startPoint;
     Vector3 oldpos;
-    private float maxdistance, distancetraveled, dis1, dis2;
+    private float maxdistance, dis1, dis2;
+    public float distancetraveled;
 
 
     void Start()
     {
+        //     if (instance == null)
+        //     {
+        //         instance = this;
+        //     }
         for (int i = 0; i < pathPoints.childCount; i++)
         {
             if (i < pathPoints.childCount - 1)
@@ -37,10 +44,13 @@ public class ProgressManager : MonoBehaviour
     // [SerializeField] float distance;
     void Update()
     {
-        if (distancetraveled < maxdistance)
+        if (moveHorseSample.instance.start)
         {
-            float distance = (getDistance() / maxdistance);
-            SetValue(distance);
+            if (distancetraveled < maxdistance)
+            {
+                float distance = (getDistance() / maxdistance);
+                SetValue(distance);
+            }
         }
     }
     private float getDistance()

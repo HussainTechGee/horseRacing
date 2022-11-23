@@ -59,7 +59,6 @@ public class Colliders : MonoBehaviour
     }
     private void OnCollisionExit(Collision other)
     {
-
         if (other.gameObject.CompareTag("leftcol"))
         {
             gameObject.transform.parent.GetComponent<moveHorseSample>().incollider = false;
@@ -76,18 +75,7 @@ public class Colliders : MonoBehaviour
         {
             gameObject.transform.parent.GetComponent<moveHorseSample>().win = true;
             StartCoroutine(moveHorseSample.instance.playerWin());
-        }
 
-    }
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.CompareTag("leftcol"))
-        {
-            gameObject.transform.parent.GetComponent<moveHorseSample>().turnright(1.2f);
-        }
-        else if (other.gameObject.CompareTag("rightcol"))
-        {
-            gameObject.transform.parent.GetComponent<moveHorseSample>().turnleft(1.2f);
         }
     }
 

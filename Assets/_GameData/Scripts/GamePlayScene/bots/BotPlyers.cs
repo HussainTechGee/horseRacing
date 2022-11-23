@@ -6,7 +6,7 @@ using PathCreation;
 public class BotPlyers : MonoBehaviour
 {
     public static BotPlyers instance;
-    private Animator botAnimator, RiderController;
+    [HideInInspector] public Animator botAnimator, RiderController;
     public PathCreator pathCreator;
     public float speed, boostFactor;
     float distancetravled;

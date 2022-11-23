@@ -22,11 +22,12 @@ public class BotsFreezingSkill : MonoBehaviour
             player.freez = false;
             bot1.freez = false;
             bot2.freez = false;
+            isfreez = false;
 
         }
         if (freecooldown >= 5)
         {
-            isfreez = false;
+
         }
     }
     public void freez()

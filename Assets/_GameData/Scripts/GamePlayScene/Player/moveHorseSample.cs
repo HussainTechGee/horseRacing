@@ -11,7 +11,8 @@ public class moveHorseSample : MonoBehaviour
     public GameObject horsewithrider, shieldobject, IcecubeObj, boostObj;
     public float speed, turnspeed, turnduration, boostfactor;
     public bool freez, boost, win, incollider, shield;
-    bool start, sprint;
+    public bool start;
+    bool sprint;
 
     void Start()
     {
@@ -173,24 +174,29 @@ public class moveHorseSample : MonoBehaviour
 
     public IEnumerator playerWin()
     {
+        var tempSpeed = speed;
         if (!alreadychecked)
         {
+
             StartCoroutine(cutSceneScript.instance.onWin());
-            speed /= 2;
-            HorseController.SetTrigger("walk");
-            RiderController.SetTrigger("walk");
+
             alreadychecked = true;
         }
         yield return new WaitForEndOfFrame();
+        if (speed <= tempSpeed / 2)
+        {
+            HorseController.SetTrigger("walk");
+            RiderController.SetTrigger("walk");
+        }
         if (speed > 0)
         {
-            speed -= 0.006f;
-            StartCoroutine(playerWin());
+            speed -= 0.05f;
         }
         else
         {
             HorseController.SetTrigger("idle");
             RiderController.SetTrigger("idle");
         }
+        StartCoroutine(playerWin());
     }
 }

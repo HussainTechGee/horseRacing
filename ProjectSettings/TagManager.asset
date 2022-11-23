@@ -21,6 +21,8 @@ TagManager:
   - land
   - foot
   - shield
+  - rocket
+  - attack
   layers:
   - Default
   - TransparentFX

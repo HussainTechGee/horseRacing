@@ -3,7 +3,12 @@ guid: cb39bfa0ff030c54ab4054839097c1f0
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fence
+    second: {fileID: 2100000, guid: 877fa48f56ea05146834acf35b083ed0, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

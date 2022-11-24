@@ -33,7 +33,7 @@ public class botCollisions : MonoBehaviour
             explosion.GetComponent<ParticleSystem>().Play();
             missilehit.instance.targetobj = gameObject.transform.parent.gameObject;
             missilehit.instance.rockethit = true;
-            Destroy(other.gameObject);
+            Destroy(other.gameObject.transform.parent.gameObject);
 
         }
     }

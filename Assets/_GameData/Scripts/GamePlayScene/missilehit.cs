@@ -28,26 +28,26 @@ public class missilehit : MonoBehaviour
         targetobj.SetActive(false);
         yield return new WaitForSeconds(.5f);
         targetobj.SetActive(true);
-        targetobj.GetComponent<BotPlyers>().RiderController.SetTrigger("sprint");
-        targetobj.GetComponent<BotPlyers>().botAnimator.SetTrigger("sprint");
+        targetobj.transform.GetChild(0).GetComponent<Animator>().SetTrigger("sprint");
+        targetobj.transform.GetChild(0).GetChild(4).GetComponent<Animator>().SetTrigger("sprint");
         yield return new WaitForSeconds(.5f);
         targetobj.SetActive(false);
         yield return new WaitForSeconds(.5f);
         targetobj.SetActive(true);
-        targetobj.GetComponent<BotPlyers>().RiderController.SetTrigger("sprint");
-        targetobj.GetComponent<BotPlyers>().botAnimator.SetTrigger("sprint");
+        targetobj.transform.GetChild(0).GetComponent<Animator>().SetTrigger("sprint");
+        targetobj.transform.GetChild(0).GetChild(4).GetComponent<Animator>().SetTrigger("sprint");
         yield return new WaitForSeconds(.5f);
         targetobj.SetActive(false);
         yield return new WaitForSeconds(.5f);
         targetobj.SetActive(true);
-        targetobj.GetComponent<BotPlyers>().RiderController.SetTrigger("sprint");
-        targetobj.GetComponent<BotPlyers>().botAnimator.SetTrigger("sprint");
+        targetobj.transform.GetChild(0).GetComponent<Animator>().SetTrigger("sprint");
+        targetobj.transform.GetChild(0).GetChild(4).GetComponent<Animator>().SetTrigger("sprint");
         yield return new WaitForSeconds(.5f);
         targetobj.SetActive(false);
         yield return new WaitForSeconds(.5f);
         targetobj.SetActive(true);
-        targetobj.GetComponent<BotPlyers>().RiderController.SetTrigger("sprint");
-        targetobj.GetComponent<BotPlyers>().botAnimator.SetTrigger("sprint");
+        targetobj.transform.GetChild(0).GetComponent<Animator>().SetTrigger("sprint");
+        targetobj.transform.GetChild(0).GetChild(4).GetComponent<Animator>().SetTrigger("sprint");
 
     }
 

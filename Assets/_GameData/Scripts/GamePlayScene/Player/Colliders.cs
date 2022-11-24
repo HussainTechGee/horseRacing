@@ -6,6 +6,7 @@ public class Colliders : MonoBehaviour
 {
     Rigidbody rb;
     RigidbodyConstraints originalConstraints;
+    public GameObject explosion;
     private void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
@@ -44,6 +45,17 @@ public class Colliders : MonoBehaviour
             UIManager.instance.skillButton[2].SetActive(true);
             other.gameObject.SetActive(false);
             StartCoroutine(activeSkillPick(other.gameObject));
+        }
+        else if (other.gameObject.CompareTag("rocket"))
+        {
+            Debug.Log(gameObject.transform.parent.name);
+            Debug.Log("rockethit");
+            explosion.SetActive(true);
+            explosion.GetComponent<ParticleSystem>().Play();
+            missilehit.instance.targetobj = gameObject.transform.parent.gameObject;
+            missilehit.instance.rockethit = true;
+            Destroy(other.gameObject.transform.parent.gameObject);
+
         }
     }
     private void OnCollisionStay(Collision other)

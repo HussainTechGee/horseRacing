@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 770209183772882110}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 60, y: 60, z: 60}
+  m_LocalScale: {x: 50, y: 50, z: 50}
   m_Children: []
   m_Father: {fileID: 2634370508424008209}
   m_RootOrder: 0
@@ -4984,14 +4984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb316dfddc85e7478428e2358f7cc70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  selectedpath: {fileID: 0}
-  distancetravled: 0
-  speed: 0
-  start: 0
-  followpath: 0
-  followtarget: 0
-  targetpointonpath: {x: 0, y: 0, z: 0}
+  initobject: {fileID: 0}
 --- !u!1 &2634370508424008206
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,6 +23,7 @@ TagManager:
   - shield
   - rocket
   - attack
+  - rocketpick
   layers:
   - Default
   - TransparentFX

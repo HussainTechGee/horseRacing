@@ -13,11 +13,13 @@ public class moveHorseSample : MonoBehaviour
     public bool freez, boost, win, incollider, shield;
     public bool start;
     bool sprint;
+    [HideInInspector] public float startspeed;
 
     void Start()
     {
         instance = this;
         StartCoroutine(StartGame());
+        startspeed = speed;
         speed = speed / 4;
 
     }
@@ -48,12 +50,16 @@ public class moveHorseSample : MonoBehaviour
                         if (Input.mousePosition.x < Screen.width / 2)
                         {
                             if (!incollider && !freez)
-                            { turnleft(1); }
+                            {
+                                turnleft(1);
+                            }
                         }
                         else
                         {
                             if (!incollider && !freez)
-                            { turnright(1); }
+                            {
+                                turnright(1);
+                            }
                         }
                     }
                 }

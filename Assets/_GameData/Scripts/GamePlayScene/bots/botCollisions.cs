@@ -25,6 +25,12 @@ public class botCollisions : MonoBehaviour
             other.gameObject.SetActive(false);
             StartCoroutine(activeSkillPick(other.gameObject));
         }
+        else if (other.gameObject.CompareTag("rocketpick"))
+        {
+            BotsUsingSkills.botsUsingSkills.canuserocket = true;
+            other.gameObject.SetActive(false);
+            StartCoroutine(activeSkillPick(other.gameObject));
+        }
         else if (other.gameObject.CompareTag("rocket"))
         {
             Debug.Log(gameObject.transform.parent.name);

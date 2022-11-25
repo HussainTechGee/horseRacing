@@ -46,6 +46,12 @@ public class Colliders : MonoBehaviour
             other.gameObject.SetActive(false);
             StartCoroutine(activeSkillPick(other.gameObject));
         }
+        else if (other.gameObject.CompareTag("rocketpick"))
+        {
+            UIManager.instance.skillButton[3].SetActive(true);
+            other.gameObject.SetActive(false);
+            StartCoroutine(activeSkillPick(other.gameObject));
+        }
         else if (other.gameObject.CompareTag("rocket"))
         {
             Debug.Log(gameObject.transform.parent.name);

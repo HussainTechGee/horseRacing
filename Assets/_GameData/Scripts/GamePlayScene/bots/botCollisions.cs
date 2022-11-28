@@ -31,6 +31,15 @@ public class botCollisions : MonoBehaviour
             other.gameObject.SetActive(false);
             StartCoroutine(activeSkillPick(other.gameObject));
         }
+
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("finish"))
+        {
+            gameObject.transform.parent.GetComponent<BotPlyers>().win = true;
+            StartCoroutine(gameObject.transform.parent.GetComponent<BotPlyers>().botWin());
+        }
         else if (other.gameObject.CompareTag("rocket"))
         {
             Debug.Log(gameObject.transform.parent.name);
@@ -39,16 +48,9 @@ public class botCollisions : MonoBehaviour
             explosion.GetComponent<ParticleSystem>().Play();
             missilehit.instance.targetobj = gameObject.transform.parent.gameObject;
             missilehit.instance.rockethit = true;
-            Destroy(other.gameObject.transform.parent.gameObject);
+            other.gameObject.transform.parent.gameObject.SetActive(false);
+            // Destroy(other.gameObject.transform.parent.gameObject);
 
-        }
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("finish"))
-        {
-            gameObject.transform.parent.GetComponent<BotPlyers>().win = true;
-            StartCoroutine(gameObject.transform.parent.GetComponent<BotPlyers>().botWin());
         }
 
     }

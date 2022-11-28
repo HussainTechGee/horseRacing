@@ -20,9 +20,9 @@ public class landManager : MonoBehaviour
         if (other.gameObject.CompareTag("foot"))
         {
             Invoke("footstep", .2f);
-            GameObject temppartical = Instantiate(dustPartical, other.transform.position, other.transform.rotation);
+            // GameObject temppartical = Instantiate(dustPartical, other.transform.position, other.transform.rotation);
 
-            Destroy(temppartical, .5f);
+            // Destroy(temppartical, .5f);
         }
     }
 

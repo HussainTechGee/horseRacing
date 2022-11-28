@@ -26,7 +26,6 @@ public class MissileSkillHolder1 : MonoBehaviour
     }
     private void Update()
     {
-
         if (startfire)
         {
             waitTime -= Time.deltaTime;
@@ -38,16 +37,16 @@ public class MissileSkillHolder1 : MonoBehaviour
                     Follow = false;
                 }
                 firedrocket = Instantiate(rocketprefab, rocketStartPosition.position, Quaternion.Euler(0, 0, 0));
-
+                // firedrocket.transform.GetChild(0).GetComponent<RocketScript>().initobject = this.gameObject;
                 Vector3 targetpointonpath1 = rocketPaths[0].path.GetClosestPointOnPath(rocketStartPosition.position);
                 Vector3 targetpointonpath2 = rocketPaths[1].path.GetClosestPointOnPath(rocketStartPosition.position);
                 float tempdist1 = Vector3.Distance(rocketStartPosition.position, targetpointonpath1);
                 float tempdist2 = Vector3.Distance(rocketStartPosition.position, targetpointonpath2);
                 if (tempdist1 < tempdist2)
                 {
+
                     selectedPath = rocketPaths[0];
                     rocketFollowPoint.position = rocketPaths[0].path.GetClosestPointOnPath(rocketFollowPoint.position);
-
                     rocketFollowPoint.position = new Vector3(rocketFollowPoint.position.x, 2.5f, rocketFollowPoint.position.z);
                     distancetravled = selectedPath.path.GetClosestDistanceAlongPath(rocketFollowPoint.position);
                 }
@@ -59,7 +58,7 @@ public class MissileSkillHolder1 : MonoBehaviour
                     rocketFollowPoint.position = new Vector3(rocketFollowPoint.position.x, 2.5f, rocketFollowPoint.position.z);
                     distancetravled = selectedPath.path.GetClosestDistanceAlongPath(rocketFollowPoint.position);
                 }
-                firedrocket.transform.GetChild(0).GetComponent<RocketScript>().initobject = this.gameObject;
+
                 move = true;
                 startfire = false;
                 waitTime = 1;

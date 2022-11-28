@@ -34,8 +34,6 @@ public class cutSceneScript : MonoBehaviour
         yield return new WaitForSeconds(4f);
         Scenes[0].SetActive(false);
         //Animation scene1
-
-
         yield return new WaitForSeconds(.1f);
         blackpanel.SetActive(true);
         Scenes[1].SetActive(true);
@@ -45,9 +43,7 @@ public class cutSceneScript : MonoBehaviour
         Scenes[1].SetActive(false);
         blackpanel.SetActive(false);
         //Animation scene2
-
         yield return new WaitForSeconds(.1f);
-
         blackpanel.SetActive(true);
         Scenes[2].SetActive(true);
         yield return new WaitForSeconds(.2f);
@@ -55,5 +51,27 @@ public class cutSceneScript : MonoBehaviour
         yield return new WaitForSeconds(1f);
         blackpanel.SetActive(false);
 
+    }
+
+    public IEnumerator gotostart()
+    {
+        StopAllCoroutines();
+        if (Scenes[0].activeInHierarchy)
+        {
+            Scenes[0].SetActive(false);
+            blackpanel.SetActive(false);
+        }
+        else if (Scenes[1].activeInHierarchy)
+        {
+            Scenes[1].SetActive(false);
+            blackpanel.SetActive(false);
+        }
+        yield return new WaitForSeconds(1f);
+        blackpanel.SetActive(true);
+        Scenes[2].SetActive(true);
+        yield return new WaitForSeconds(.5f);
+        playercamera.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        blackpanel.SetActive(false);
     }
 }

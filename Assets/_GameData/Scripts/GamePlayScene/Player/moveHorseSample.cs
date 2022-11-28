@@ -39,6 +39,7 @@ public class moveHorseSample : MonoBehaviour
     }
     private void Update()
     {
+
         if (start)
         {
             if (!win)
@@ -75,6 +76,29 @@ public class moveHorseSample : MonoBehaviour
             Movement();
 
         }
+        else
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                StopAllCoroutines();
+                StartCoroutine(UIManager.instance.gotostarttimePanel());
+                StartCoroutine(cutSceneScript.instance.gotostart());
+                StartCoroutine(gotostart());
+            }
+        }
+    }
+    IEnumerator gotostart()
+    {
+        yield return new WaitForSeconds(5);
+        HorseController.SetTrigger("run");
+        RiderController.SetTrigger("run");
+        speed = speed * 4;
+        //sprint
+        start = true;
+        yield return new WaitForSeconds(2);
+        HorseController.SetTrigger("sprint");
+        RiderController.SetTrigger("sprint");
+        sprint = true;
     }
     public void turn(string direction)
     {

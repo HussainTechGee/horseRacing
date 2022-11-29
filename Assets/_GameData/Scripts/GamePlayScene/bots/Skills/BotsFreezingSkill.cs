@@ -5,7 +5,7 @@ using UnityEngine;
 public class BotsFreezingSkill : MonoBehaviour
 {
     public static BotsFreezingSkill botsFreezingSkill;
-    public BotPlyers bot1, bot2;
+    public BotPlyers bot1, bot2, bot3;
     public moveHorseSample player;
     public float freeztimer = 1, freecooldown = 5;
     public bool isfreez;
@@ -22,6 +22,7 @@ public class BotsFreezingSkill : MonoBehaviour
             player.freez = false;
             bot1.freez = false;
             bot2.freez = false;
+            bot3.freez = false;
             isfreez = false;
 
         }
@@ -39,6 +40,8 @@ public class BotsFreezingSkill : MonoBehaviour
             { bot1.freez = true; }
             if (!bot2.shield)
             { bot2.freez = true; }
+            if (!bot3.shield)
+            { bot3.freez = true; }
             isfreez = true;
             freecooldown = 0;
         }

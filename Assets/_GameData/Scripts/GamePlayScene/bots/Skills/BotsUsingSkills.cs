@@ -48,7 +48,7 @@ public class BotsUsingSkills : MonoBehaviour
         }
         else if (canuserocket)
         {
-            GetComponent<MissileSkillHolder1>().onclickfire();
+            GetComponent<horse_distance>().onClickFire();
             canuserocket = false;
         }
         StartCoroutine(useSkill());

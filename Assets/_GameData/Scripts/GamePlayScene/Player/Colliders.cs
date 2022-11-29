@@ -52,17 +52,7 @@ public class Colliders : MonoBehaviour
             other.gameObject.SetActive(false);
             StartCoroutine(activeSkillPick(other.gameObject));
         }
-        else if (other.gameObject.CompareTag("rocket"))
-        {
-            Debug.Log(gameObject.transform.parent.name);
-            Debug.Log("rockethit");
-            explosion.SetActive(true);
-            explosion.GetComponent<ParticleSystem>().Play();
-            missilehit.instance.targetobj = gameObject.transform.parent.gameObject;
-            missilehit.instance.rockethit = true;
-            Destroy(other.gameObject.transform.parent.gameObject);
 
-        }
     }
     private void OnCollisionStay(Collision other)
     {
@@ -93,6 +83,17 @@ public class Colliders : MonoBehaviour
         {
             gameObject.transform.parent.GetComponent<moveHorseSample>().win = true;
             StartCoroutine(moveHorseSample.instance.playerWin());
+
+        }
+        else if (other.gameObject.CompareTag("rocket"))
+        {
+            Debug.Log(gameObject.transform.parent.name);
+            Debug.Log("rockethit");
+            explosion.SetActive(true);
+            explosion.GetComponent<ParticleSystem>().Play();
+            missilehit.instance.targetobj = gameObject.transform.parent.gameObject;
+            missilehit.instance.rockethit = true;
+            other.gameObject.transform.parent.gameObject.SetActive(false);
 
         }
     }

@@ -12,7 +12,7 @@ public class BotPlyers : MonoBehaviour
     float distancetravled;
     public bool freez, boost, win, shield;
     public GameObject shieldobj, icecubeObj, boostObj;
-    bool start = true;
+    bool start = true, firstclick;
     // Start is called before the first frame update
     void Start()
     {
@@ -88,6 +88,15 @@ public class BotPlyers : MonoBehaviour
                     icecubeObj.SetActive(false);
                 }
             }
+            else
+            {
+                if (Input.GetMouseButtonDown(0) && !firstclick)
+                {
+                    StopAllCoroutines();
+                    StartCoroutine(gotoStart());
+                    firstclick = true;
+                }
+            }
         }
         else
         {
@@ -101,7 +110,20 @@ public class BotPlyers : MonoBehaviour
         }
 
     }
-
+    public IEnumerator gotoStart()
+    {
+        yield return new WaitForSeconds(.01f);
+        start = false;
+        yield return new WaitForSeconds(4.99f);
+        botAnimator.SetTrigger("run");
+        RiderController.SetTrigger("run");
+        //sprint
+        speed = speed * 4;
+        start = true;
+        yield return new WaitForSeconds(2);
+        botAnimator.SetTrigger("sprint");
+        RiderController.SetTrigger("sprint");
+    }
     bool alreadychecked;
 
     public IEnumerator botWin()

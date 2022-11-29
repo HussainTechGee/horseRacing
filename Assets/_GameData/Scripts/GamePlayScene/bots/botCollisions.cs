@@ -49,7 +49,6 @@ public class botCollisions : MonoBehaviour
             missilehit.instance.targetobj = gameObject.transform.parent.gameObject;
             missilehit.instance.rockethit = true;
             other.gameObject.transform.parent.gameObject.SetActive(false);
-            // Destroy(other.gameObject.transform.parent.gameObject);
 
         }
 
@@ -60,22 +59,5 @@ public class botCollisions : MonoBehaviour
         current.gameObject.SetActive(true);
     }
 
-    // IEnumerator explodeObject()
-    // {
-    //     yield return new WaitForSeconds(.5f);
-    //     // gameObject.transform.parent.GetComponent<BotPlyers>().speed = 0;
-    //     gameObject.transform.parent.gameObject.SetActive(false);
 
-    //     yield return new WaitForSeconds(.5f);
-    //     gameObject.transform.parent.gameObject.SetActive(true);
-    //     gameObject.transform.parent.GetComponent<BotPlyers>().RiderController.SetTrigger("sprint");
-    //     gameObject.transform.parent.GetComponent<BotPlyers>().botAnimator.SetTrigger("sprint");
-    //     yield return new WaitForSeconds(.5f);
-    //     gameObject.transform.parent.gameObject.SetActive(false);
-    //     yield return new WaitForSeconds(.5f);
-    //     gameObject.transform.parent.gameObject.SetActive(true);
-    //     gameObject.transform.parent.GetComponent<BotPlyers>().RiderController.SetTrigger("sprint");
-    //     gameObject.transform.parent.GetComponent<BotPlyers>().botAnimator.SetTrigger("sprint");
-
-    // }
 }

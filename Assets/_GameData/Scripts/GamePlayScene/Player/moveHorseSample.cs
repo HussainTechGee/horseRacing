@@ -12,7 +12,7 @@ public class moveHorseSample : MonoBehaviour
     public float speed, turnspeed, turnduration, boostfactor;
     public bool freez, boost, win, incollider, shield;
     public bool start;
-    bool sprint;
+    bool sprint, firstclick;
     [HideInInspector] public float startspeed;
 
     void Start()
@@ -78,12 +78,16 @@ public class moveHorseSample : MonoBehaviour
         }
         else
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !firstclick)
             {
                 StopAllCoroutines();
+                UIManager.instance.StopAllCoroutines();
+                // BotPlyers.instance.StopAllCoroutines();
                 StartCoroutine(UIManager.instance.gotostarttimePanel());
                 StartCoroutine(cutSceneScript.instance.gotostart());
                 StartCoroutine(gotostart());
+                // StartCoroutine(BotPlyers.instance.gotoStart());
+                firstclick = true;
             }
         }
     }

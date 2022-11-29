@@ -43,6 +43,7 @@ public class UIManager : MonoBehaviour
     }
     public IEnumerator gotostarttimePanel()
     {
+
         yield return new WaitForSeconds(1f);
         countingPanel.SetActive(true);
         countingPanel.transform.GetChild(0).GetComponent<Image>().sprite = counting[0];

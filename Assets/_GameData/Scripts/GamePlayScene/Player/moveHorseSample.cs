@@ -13,13 +13,13 @@ public class moveHorseSample : MonoBehaviour
     public bool freez, boost, win, incollider, shield;
     public bool start;
     bool sprint, firstclick;
-    [HideInInspector] public float startspeed;
+    [HideInInspector] public float startSpeed;
 
     void Start()
     {
         instance = this;
         StartCoroutine(StartGame());
-        startspeed = speed;
+        startSpeed = speed;
         speed = speed / 4;
 
     }
@@ -224,7 +224,7 @@ public class moveHorseSample : MonoBehaviour
         }
         if (speed > 0)
         {
-            speed -= 0.05f;
+            speed -= 0.03f;
         }
         else
         {

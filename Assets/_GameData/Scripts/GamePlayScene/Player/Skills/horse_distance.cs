@@ -30,7 +30,7 @@ public class horse_distance : MonoBehaviour
             {
                 dist1 = path.path.GetClosestDistanceAlongPath(horses[0].transform.position);
                 tempdist = dist1;
-                for (int i = horses.Length - 1; i > 0; i--)
+                for (int i = 1; i < horses.Length; i++)
                 {
                     dist2 = path.path.GetClosestDistanceAlongPath(horses[i].transform.position);
                     if (dist2 > dist1)
@@ -38,8 +38,9 @@ public class horse_distance : MonoBehaviour
                         if (dist2 > tempdist)
                         {
                             target = horses[i];
+                            tempdist = dist2;
                         }
-                        tempdist = dist2;
+
 
                     }
                 }
@@ -81,10 +82,11 @@ public class horse_distance : MonoBehaviour
     }
     public void onClickFire()
     {
+        target = null;
         gameObject.transform.GetChild(0).GetComponent<BoxCollider>().enabled = false;
         RiderController.SetTrigger("firegun");
         Debug.LogError("Fired");
-        target = null;
+
         startfire = true;
     }
     Rigidbody mfiredRocket;

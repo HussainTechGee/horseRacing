@@ -22,7 +22,7 @@ public class cutSceneScript : MonoBehaviour
         blackpanel.SetActive(true);
         yield return new WaitForSeconds(.2f);
         winpanel.SetActive(true);
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.4f);
         winpanel.transform.GetChild(1).gameObject.SetActive(true);
         yield return new WaitForSeconds(6f);
         // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

@@ -8,7 +8,7 @@ public class BotPlyers : MonoBehaviour
     public static BotPlyers instance;
     [HideInInspector] public Animator botAnimator, RiderController;
     public PathCreator pathCreator;
-    public float speed, boostFactor;
+    public float speed, boostFactor, startSpeed;
     float distancetravled;
     public bool freez, boost, win, shield;
     public GameObject shieldobj, icecubeObj, boostObj;
@@ -16,6 +16,7 @@ public class BotPlyers : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        startSpeed = speed;
         botAnimator = transform.GetChild(0).GetComponent<Animator>();
         RiderController = transform.GetChild(0).GetChild(4).GetComponent<Animator>();
         speed = speed / 4;
@@ -130,7 +131,7 @@ public class BotPlyers : MonoBehaviour
     {
         if (!alreadychecked)
         {
-            speed /= 2;
+            speed /= 1.2f;
             botAnimator.SetTrigger("walk");
             RiderController.SetTrigger("walk");
             alreadychecked = true;

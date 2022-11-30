@@ -14,60 +14,60 @@ public class missilehit : MonoBehaviour
     {
         if (rockethit)
         {
-            StartCoroutine(explodeObject());
+            StartCoroutine(explodeObject(targetobj));
             rockethit = false;
         }
     }
-    public IEnumerator explodeObject()
+    public IEnumerator explodeObject(GameObject target)
     {
-
-        targetobj.transform.GetChild(0).GetComponent<Animator>().SetTrigger("death");
-        if (targetobj.GetComponent<BotPlyers>() != null)
+        target.transform.GetChild(0).GetComponent<Animator>().SetTrigger("death");
+        if (target.GetComponent<BotPlyers>() != null)
         {
-            targetobj.GetComponent<BotPlyers>().speed *= 0;
+            target.GetComponent<BotPlyers>().speed *= 0;
         }
-        else if (targetobj.GetComponent<moveHorseSample>() != null)
+        else if (target.GetComponent<moveHorseSample>() != null)
         {
-            targetobj.GetComponent<moveHorseSample>().speed *= 0;
+            target.GetComponent<moveHorseSample>().speed *= 0;
         }
-        targetobj.transform.GetChild(0).GetChild(4).gameObject.SetActive(false);
+        target.transform.GetChild(0).GetChild(4).gameObject.SetActive(false);
         yield return new WaitForSeconds(2.7f);
-
-        targetobj.SetActive(false);
+        target.transform.GetChild(0).GetChild(9).gameObject.SetActive(false);
+        target.SetActive(false);
         yield return new WaitForSeconds(.3f);
-        targetobj.SetActive(true);
-        targetobj.transform.GetChild(0).GetChild(4).gameObject.SetActive(true);
-        targetobj.transform.GetChild(0).GetComponent<Animator>().SetTrigger("idle");
-        targetobj.transform.GetChild(0).GetChild(4).GetComponent<Animator>().SetTrigger("idle");
+        target.SetActive(true);
+        target.transform.GetChild(0).GetChild(4).gameObject.SetActive(true);
+        target.transform.GetChild(0).GetComponent<Animator>().SetTrigger("idle");
+        target.transform.GetChild(0).GetChild(4).GetComponent<Animator>().SetTrigger("idle");
         yield return new WaitForSeconds(.3f);
-        targetobj.SetActive(false);
+        target.SetActive(false);
         yield return new WaitForSeconds(.3f);
-        targetobj.SetActive(true);
+        target.SetActive(true);
         yield return new WaitForSeconds(.3f);
-        targetobj.SetActive(false);
+        target.SetActive(false);
         yield return new WaitForSeconds(.3f);
-        targetobj.SetActive(true);
+        target.SetActive(true);
         yield return new WaitForSeconds(.3f);
-        targetobj.SetActive(false);
+        target.SetActive(false);
         yield return new WaitForSeconds(.3f);
-        targetobj.SetActive(true);
+        target.SetActive(true);
         yield return new WaitForSeconds(.3f);
-        targetobj.SetActive(false);
+        target.SetActive(false);
         yield return new WaitForSeconds(.3f);
-        targetobj.SetActive(true);
+        target.SetActive(true);
         yield return new WaitForSeconds(.3f);
-        targetobj.SetActive(false);
+        target.SetActive(false);
         yield return new WaitForSeconds(.3f);
-        targetobj.SetActive(true);
-        if (targetobj.GetComponent<BotPlyers>() != null)
+        target.SetActive(true);
+        if (target.GetComponent<BotPlyers>() != null)
         {
-            targetobj.GetComponent<BotPlyers>().speed = targetobj.GetComponent<BotPlyers>().startSpeed;
+            target.GetComponent<BotPlyers>().speed = target.GetComponent<BotPlyers>().startSpeed;
         }
-        else if (targetobj.GetComponent<moveHorseSample>() != null)
+        else if (target.GetComponent<moveHorseSample>() != null)
         {
-            targetobj.GetComponent<moveHorseSample>().speed = targetobj.GetComponent<moveHorseSample>().startSpeed;
+            target.GetComponent<moveHorseSample>().speed = target.GetComponent<moveHorseSample>().startSpeed;
         }
-        targetobj.transform.GetChild(0).GetComponent<Animator>().SetTrigger("sprint");
-        targetobj.transform.GetChild(0).GetChild(4).GetComponent<Animator>().SetTrigger("sprint");
+        target.transform.GetChild(0).GetComponent<Animator>().SetTrigger("sprint");
+        target.transform.GetChild(0).GetChild(4).GetComponent<Animator>().SetTrigger("sprint");
+        targetobj = null;
     }
 }

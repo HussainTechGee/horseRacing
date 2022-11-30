@@ -13,7 +13,7 @@ public class landManager : MonoBehaviour
             GameObject temppartical = Instantiate(dustPartical, other.transform.position, dustPartical.transform.rotation);
             Destroy(temppartical, .5f);
         }
-        else if(other.gameObject.CompareTag("myfoot"))
+        else if (other.gameObject.CompareTag("myfoot"))
         {
             footstep();
             GameObject temppartical = Instantiate(dustPartical, other.transform.position, dustPartical.transform.rotation);
@@ -23,7 +23,7 @@ public class landManager : MonoBehaviour
 
     void footstep()
     {
-        SoundManager.instance.Play("step"+Random.Range(1,3));
+        SoundManager.instance.Play("step" + Random.Range(1, 3));
         MMVibrationManager.Haptic(HapticTypes.LightImpact);
     }
 }

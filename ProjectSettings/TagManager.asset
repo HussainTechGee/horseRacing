@@ -24,6 +24,7 @@ TagManager:
   - rocket
   - attack
   - rocketpick
+  - myfoot
   layers:
   - Default
   - TransparentFX

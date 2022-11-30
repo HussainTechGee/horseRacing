@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using MoreMountains.NiceVibrations;
 public class landManager : MonoBehaviour
 {
     public GameObject dustPartical;
@@ -10,14 +10,20 @@ public class landManager : MonoBehaviour
     {
         if (other.gameObject.CompareTag("foot"))
         {
-            Invoke("footstep", .2f);
-            GameObject temppartical = Instantiate(dustPartical, other.transform.position, other.transform.rotation);
+            GameObject temppartical = Instantiate(dustPartical, other.transform.position, dustPartical.transform.rotation);
+            Destroy(temppartical, .5f);
+        }
+        else if(other.gameObject.CompareTag("myfoot"))
+        {
+            footstep();
+            GameObject temppartical = Instantiate(dustPartical, other.transform.position, dustPartical.transform.rotation);
             Destroy(temppartical, .5f);
         }
     }
 
     void footstep()
     {
-        SoundManager.instance.Play("step");
+        SoundManager.instance.Play("step"+Random.Range(1,3));
+        MMVibrationManager.Haptic(HapticTypes.LightImpact);
     }
 }

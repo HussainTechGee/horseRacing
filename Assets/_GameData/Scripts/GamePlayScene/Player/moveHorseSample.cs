@@ -87,13 +87,13 @@ public class moveHorseSample : MonoBehaviour
                         }
                     }
                 }
-                if (Input.GetMouseButtonUp(0))
-                {
-                    if (!sprint)
-                        HorseController.SetTrigger("run");
-                    else
-                        HorseController.SetTrigger("sprint");
-                }
+                // if (Input.GetMouseButtonUp(0))
+                // {
+                //     if (!sprint)
+                //         HorseController.SetTrigger("run");
+                //     else
+                //         HorseController.SetTrigger("sprint");
+                // }
             }
 
             Movement();
@@ -116,7 +116,7 @@ public class moveHorseSample : MonoBehaviour
     }
     IEnumerator gotostart()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(7);
         HorseController.SetTrigger("run");
         RiderController.SetTrigger("run");
         speed = speed * 4;
@@ -127,11 +127,11 @@ public class moveHorseSample : MonoBehaviour
         RiderController.SetTrigger("sprint");
         sprint = true;
     }
-    public void turn(string direction)
-    {
-        HorseController.SetTrigger(direction);
-        RiderController.SetTrigger(direction);
-    }
+    // public void turn(string direction)
+    // {
+    //     HorseController.SetTrigger(direction);
+    //     RiderController.SetTrigger(direction);
+    // }
     public void turnleft(float factor)
     {
         if (!sprint)
@@ -213,8 +213,8 @@ public class moveHorseSample : MonoBehaviour
         else
         {
             horsewithrider.transform.Translate(0, 0, 0 + speed * Time.deltaTime);
-            HorseController.speed = 1f;
-            RiderController.speed = 1f;
+            HorseController.speed = 1.2f;
+            RiderController.speed = 1.2f;
             shieldobject.SetActive(false);
             IcecubeObj.SetActive(false);
             boostObj.SetActive(false);

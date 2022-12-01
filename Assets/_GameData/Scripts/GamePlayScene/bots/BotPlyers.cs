@@ -49,6 +49,7 @@ public class BotPlyers : MonoBehaviour
                     transform.position = pathCreator.path.GetPointAtDistance(distancetravled);
                     transform.rotation = pathCreator.path.GetRotationAtDistance(distancetravled);
                     botAnimator.speed = 1.2f;
+                    RiderController.speed = 1.2f;
                     shieldobj.SetActive(false);
                     boostObj.SetActive(false);
                     icecubeObj.SetActive(false);
@@ -59,6 +60,8 @@ public class BotPlyers : MonoBehaviour
                     transform.position = pathCreator.path.GetPointAtDistance(distancetravled);
                     transform.rotation = pathCreator.path.GetRotationAtDistance(distancetravled);
                     botAnimator.speed = 1.6f;
+                    RiderController.speed = 1.6f;
+
                     boostObj.SetActive(true);
                 }
                 else if (shield && boost)
@@ -67,6 +70,8 @@ public class BotPlyers : MonoBehaviour
                     transform.position = pathCreator.path.GetPointAtDistance(distancetravled);
                     transform.rotation = pathCreator.path.GetRotationAtDistance(distancetravled);
                     botAnimator.speed = 1.2f;
+                    RiderController.speed = 1.2f;
+
                     boostObj.SetActive(true);
                     shieldobj.SetActive(true);
                     icecubeObj.SetActive(false);
@@ -77,6 +82,8 @@ public class BotPlyers : MonoBehaviour
                     transform.position = pathCreator.path.GetPointAtDistance(distancetravled);
                     transform.rotation = pathCreator.path.GetRotationAtDistance(distancetravled);
                     botAnimator.speed = 0f;
+                    RiderController.speed = 0f;
+
                     icecubeObj.SetActive(true);
                 }
                 else if (shield)
@@ -85,6 +92,7 @@ public class BotPlyers : MonoBehaviour
                     transform.position = pathCreator.path.GetPointAtDistance(distancetravled);
                     transform.rotation = pathCreator.path.GetRotationAtDistance(distancetravled);
                     botAnimator.speed = 1.2f;
+                    RiderController.speed = 1.2f;
                     shieldobj.SetActive(true);
                     icecubeObj.SetActive(false);
                 }
@@ -104,10 +112,7 @@ public class BotPlyers : MonoBehaviour
             distancetravled += speed * Time.deltaTime;
             transform.position = pathCreator.path.GetPointAtDistance(distancetravled);
             transform.rotation = pathCreator.path.GetRotationAtDistance(distancetravled);
-            botAnimator.speed = 1f;
-            shieldobj.SetActive(false);
-            boostObj.SetActive(false);
-            icecubeObj.SetActive(false);
+
         }
 
     }
@@ -115,7 +120,7 @@ public class BotPlyers : MonoBehaviour
     {
         yield return new WaitForSeconds(.01f);
         start = false;
-        yield return new WaitForSeconds(4.99f);
+        yield return new WaitForSeconds(6.99f);
         botAnimator.SetTrigger("run");
         RiderController.SetTrigger("run");
         //sprint
@@ -134,6 +139,10 @@ public class BotPlyers : MonoBehaviour
             speed /= 1.2f;
             botAnimator.SetTrigger("walk");
             RiderController.SetTrigger("walk");
+            botAnimator.speed = 1f;
+            shieldobj.SetActive(false);
+            boostObj.SetActive(false);
+            icecubeObj.SetActive(false);
             alreadychecked = true;
         }
         yield return new WaitForEndOfFrame();

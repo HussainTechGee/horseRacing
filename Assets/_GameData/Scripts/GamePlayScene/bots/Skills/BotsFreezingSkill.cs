@@ -23,6 +23,7 @@ public class BotsFreezingSkill : MonoBehaviour
             bot1.freez = false;
             bot2.freez = false;
             bot3.freez = false;
+            bot4.freez = false;
             isfreez = false;
 
         }
@@ -42,6 +43,8 @@ public class BotsFreezingSkill : MonoBehaviour
             { bot2.freez = true; }
             if (!bot3.shield)
             { bot3.freez = true; }
+            if (!bot4.shield)
+            { bot4.freez = true; }
             isfreez = true;
             freecooldown = 0;
         }

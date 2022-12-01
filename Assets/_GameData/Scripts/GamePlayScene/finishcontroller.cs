@@ -6,8 +6,15 @@ public class finishcontroller : MonoBehaviour
 {
 
     [SerializeField] int currentposition = 0;
+    [SerializeField] GameObject fireworks;
 
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "myfoot")
+        {
+            fireworks.SetActive(true);
+        }
+    }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Animal"))

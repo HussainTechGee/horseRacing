@@ -9,24 +9,19 @@ public class BotsUsingSkills : MonoBehaviour
     public bool canusefreezSkill, canuseBoostSkill, canuseshieldskill, canuserocket;
 
     // public float skillColldownTime;
-    void Start()
+    private void Awake()
     {
-        if (botsUsingSkills == null)
-        {
-            botsUsingSkills = this;
-        }
-        StartCoroutine(useSkill());
+        botsUsingSkills = this;
     }
-    private IEnumerator useSkill()
+    public IEnumerator useSkill()
     {
-        float wait = Random.Range(5, 10);
+        float wait = Random.Range(3, 7);
 
         yield return new WaitForSeconds(wait);
         if (canusefreezSkill)
         {
             if (!GetComponent<BotsFreezingSkill>().isfreez)
             {
-                // yield return new WaitForSeconds(wait);
                 GetComponent<BotsFreezingSkill>().freez();
                 canusefreezSkill = false;
             }
@@ -35,7 +30,6 @@ public class BotsUsingSkills : MonoBehaviour
         {
             if (!GetComponent<BotsBoostingSkill>().isboost)
             {
-                // yield return new WaitForSeconds(wait);
                 GetComponent<BotsBoostingSkill>().boost();
                 canuseBoostSkill = false;
             }
@@ -51,6 +45,5 @@ public class BotsUsingSkills : MonoBehaviour
             GetComponent<horse_distance>().onClickFire();
             canuserocket = false;
         }
-        StartCoroutine(useSkill());
     }
 }

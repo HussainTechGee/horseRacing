@@ -95,6 +95,7 @@ public class Colliders : MonoBehaviour
             explosion.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
             explosion.transform.GetChild(1).GetComponent<ParticleSystem>().Play();
             missilehit.instance.targetobj = gameObject.transform.parent.gameObject;
+            missilehit.instance.explosion = explosion;
             missilehit.instance.rockethit = true;
             other.gameObject.transform.parent.gameObject.SetActive(false);
 

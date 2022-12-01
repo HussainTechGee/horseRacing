@@ -23,7 +23,11 @@ public class landManager : MonoBehaviour
 
     void footstep()
     {
-        SoundManager.instance.Play("step" + Random.Range(1, 3));
-        MMVibrationManager.Haptic(HapticTypes.LightImpact);
+        int r = Random.Range(1, 5);
+        SoundManager.instance.Play("step" + r);
+        if (r != 3 && r != 1 && r != 5)
+        {
+            MMVibrationManager.Haptic(HapticTypes.LightImpact);
+        }
     }
 }

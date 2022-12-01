@@ -69,7 +69,7 @@ public class cutSceneScript : MonoBehaviour
         yield return new WaitForSeconds(1f);
         blackpanel.SetActive(true);
         Scenes[2].SetActive(true);
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.2f);
         playercamera.SetActive(true);
         yield return new WaitForSeconds(1f);
         blackpanel.SetActive(false);

@@ -85,14 +85,14 @@ public class horse_distance : MonoBehaviour
         target = null;
         gameObject.transform.GetChild(0).GetComponent<BoxCollider>().enabled = false;
         RiderController.SetTrigger("firegun");
-        Debug.LogError("Fired");
+        Debug.LogError("Fired by :" + gameObject.name);
 
         startfire = true;
     }
     Rigidbody mfiredRocket;
     IEnumerator ResetRigidbodyAndDisable(Rigidbody rb, GameObject rocketobj)
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(15f);
         if (mfiredRocket != null)
         {
             rb.velocity = Vector3.zero;

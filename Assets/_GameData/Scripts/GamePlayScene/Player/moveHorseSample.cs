@@ -12,6 +12,7 @@ public class moveHorseSample : MonoBehaviour
     public float speed, turnspeed, turnduration, boostfactor;
     public bool freez, boost, win, incollider, shield;
     public bool start;
+    public bool isTilt;
     bool sprint, firstclick;
     [HideInInspector] public float startSpeed;
 
@@ -44,22 +45,44 @@ public class moveHorseSample : MonoBehaviour
         {
             if (!win)
             {
-                if (Input.GetMouseButton(0) && !Input.GetMouseButtonUp(0))
+                if (sprint)
                 {
-                    if (sprint)
+                    //Tilt Contoll
+                    if (isTilt)
                     {
-                        if (Input.mousePosition.x < Screen.width / 2)
+                        Vector3 newAcc = Input.acceleration;
+                        if (newAcc.x < -.1f)
                         {
                             if (!incollider && !freez)
                             {
                                 turnleft(1);
                             }
                         }
-                        else
+                        else if (newAcc.x > .1f)
                         {
                             if (!incollider && !freez)
                             {
                                 turnright(1);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (Input.GetMouseButton(0) && !Input.GetMouseButtonUp(0))
+                        {
+                            if (Input.mousePosition.x < Screen.width / 2)
+                            {
+                                if (!incollider && !freez)
+                                {
+                                    turnleft(1);
+                                }
+                            }
+                            else
+                            {
+                                if (!incollider && !freez)
+                                {
+                                    turnright(1);
+                                }
                             }
                         }
                     }

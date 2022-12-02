@@ -22,6 +22,14 @@ public class moveHorseSample : MonoBehaviour
         StartCoroutine(StartGame());
         startSpeed = speed;
         speed = speed / 4;
+        if (PlayerPrefs.GetInt("tilt") != 1)
+        {
+            isTilt = false;
+        }
+        else
+        {
+            isTilt = true;
+        }
 
     }
 
@@ -116,7 +124,7 @@ public class moveHorseSample : MonoBehaviour
     }
     IEnumerator gotostart()
     {
-        yield return new WaitForSeconds(7);
+        yield return new WaitForSeconds(8);
         HorseController.SetTrigger("run");
         RiderController.SetTrigger("run");
         speed = speed * 4;

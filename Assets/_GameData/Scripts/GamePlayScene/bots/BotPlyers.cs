@@ -120,7 +120,7 @@ public class BotPlyers : MonoBehaviour
     {
         yield return new WaitForSeconds(.01f);
         start = false;
-        yield return new WaitForSeconds(6.99f);
+        yield return new WaitForSeconds(7.99f);
         botAnimator.SetTrigger("run");
         RiderController.SetTrigger("run");
         //sprint

@@ -15,7 +15,7 @@ public class BotsUsingSkills : MonoBehaviour
     }
     private void Start()
     {
-        // StartCoroutine(useSkill());
+        StartCoroutine(useSkill());
     }
     public IEnumerator useSkill()
     {
@@ -49,6 +49,6 @@ public class BotsUsingSkills : MonoBehaviour
             GetComponent<horse_distance>().onClickFire();
             canuserocket = false;
         }
-        // StartCoroutine(useSkill());
+        StartCoroutine(useSkill());
     }
 }

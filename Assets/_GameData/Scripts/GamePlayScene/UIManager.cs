@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
 {
 
     public static UIManager instance;
-    public GameObject countingPanel, starting_gates, finishLine;
+    public GameObject countingPanel, starting_gates, finishLine, taportilt;
     public Sprite[] counting;
     public GameObject[] skillButton;
 
@@ -45,11 +45,21 @@ public class UIManager : MonoBehaviour
         MMVibrationManager.Haptic(HapticTypes.SoftImpact);
         yield return new WaitForSeconds(.9f);
         countingPanel.SetActive(false);
+        if (moveHorseSample.instance.isTilt)
+        {
+            taportilt.transform.GetChild(0).gameObject.SetActive(true);
+        }
+        else
+        {
+            taportilt.transform.GetChild(1).gameObject.SetActive(true);
+        }
         SoundManager.instance.Play("fire");
         MMVibrationManager.Haptic(HapticTypes.MediumImpact);
         yield return new WaitForSeconds(3);
         starting_gates.SetActive(false);
         finishLine.SetActive(true);
+        yield return new WaitForSeconds(1);
+        taportilt.SetActive(false);
     }
     public IEnumerator gotostarttimePanel()
     {
@@ -75,15 +85,22 @@ public class UIManager : MonoBehaviour
         MMVibrationManager.Haptic(HapticTypes.SoftImpact);
         yield return new WaitForSeconds(.9f);
         countingPanel.SetActive(false);
+        if (moveHorseSample.instance.isTilt)
+        {
+            taportilt.transform.GetChild(0).gameObject.SetActive(true);
+        }
+        else
+        {
+            taportilt.transform.GetChild(1).gameObject.SetActive(true);
+        }
         SoundManager.instance.Play("fire");
         MMVibrationManager.Haptic(HapticTypes.MediumImpact);
         yield return new WaitForSeconds(3);
         starting_gates.SetActive(false);
         finishLine.SetActive(true);
+        yield return new WaitForSeconds(1);
+        taportilt.SetActive(false);
     }
 
-    public void onclickcontrol(bool istilt)
-    {
-        moveHorseSample.instance.isTilt = istilt;
-    }
+
 }

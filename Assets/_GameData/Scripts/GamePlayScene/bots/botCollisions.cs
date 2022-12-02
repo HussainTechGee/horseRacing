@@ -9,29 +9,29 @@ public class botCollisions : MonoBehaviour
     {
         if (other.gameObject.CompareTag("freez"))
         {
-            BotsUsingSkills.botsUsingSkills.canusefreezSkill = true;
-            // StartCoroutine(gameObject.transform.parent.GetComponent<BotsUsingSkills>().useSkill());
+            gameObject.transform.parent.GetComponent<BotsUsingSkills>().canusefreezSkill = true;
+            StartCoroutine(gameObject.transform.parent.GetComponent<BotsUsingSkills>().useSkill());
             other.gameObject.SetActive(false);
             StartCoroutine(activeSkillPick(other.gameObject));
         }
         else if (other.gameObject.CompareTag("boost"))
         {
-            BotsUsingSkills.botsUsingSkills.canuseBoostSkill = true;
-            // StartCoroutine(gameObject.transform.parent.GetComponent<BotsUsingSkills>().useSkill());
+            gameObject.transform.parent.GetComponent<BotsUsingSkills>().canuseBoostSkill = true;
+            StartCoroutine(gameObject.transform.parent.GetComponent<BotsUsingSkills>().useSkill());
             other.gameObject.SetActive(false);
             StartCoroutine(activeSkillPick(other.gameObject));
         }
         else if (other.gameObject.CompareTag("shield"))
         {
-            BotsUsingSkills.botsUsingSkills.canuseshieldskill = true;
-            // StartCoroutine(gameObject.transform.parent.GetComponent<BotsUsingSkills>().useSkill());
+            gameObject.transform.parent.GetComponent<BotsUsingSkills>().canuseshieldskill = true;
+            StartCoroutine(gameObject.transform.parent.GetComponent<BotsUsingSkills>().useSkill());
             other.gameObject.SetActive(false);
             StartCoroutine(activeSkillPick(other.gameObject));
         }
         else if (other.gameObject.CompareTag("rocketpick"))
         {
-            BotsUsingSkills.botsUsingSkills.canuserocket = true;
-            // StartCoroutine(gameObject.transform.parent.GetComponent<BotsUsingSkills>().useSkill());
+            gameObject.transform.parent.GetComponent<BotsUsingSkills>().canuserocket = true;
+            StartCoroutine(gameObject.transform.parent.GetComponent<BotsUsingSkills>().useSkill());
             other.gameObject.SetActive(false);
             StartCoroutine(activeSkillPick(other.gameObject));
         }

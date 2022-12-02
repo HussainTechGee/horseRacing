@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
 {
 
     public static UIManager instance;
-    public GameObject countingPanel, starting_gates, finishLine, taportilt;
+    public GameObject countingPanel, starting_gates, finishLine, taportilt, skipbutton;
     public Sprite[] counting;
     public GameObject[] skillButton;
 
@@ -45,6 +45,7 @@ public class UIManager : MonoBehaviour
         MMVibrationManager.Haptic(HapticTypes.SoftImpact);
         yield return new WaitForSeconds(.9f);
         countingPanel.SetActive(false);
+        skipbutton.SetActive(false);
         if (moveHorseSample.instance.isTilt)
         {
             taportilt.transform.GetChild(0).gameObject.SetActive(true);
@@ -85,6 +86,7 @@ public class UIManager : MonoBehaviour
         MMVibrationManager.Haptic(HapticTypes.SoftImpact);
         yield return new WaitForSeconds(.9f);
         countingPanel.SetActive(false);
+        skipbutton.SetActive(false);
         if (moveHorseSample.instance.isTilt)
         {
             taportilt.transform.GetChild(0).gameObject.SetActive(true);

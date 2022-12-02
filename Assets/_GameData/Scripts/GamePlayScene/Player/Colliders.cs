@@ -7,6 +7,7 @@ public class Colliders : MonoBehaviour
     Rigidbody rb;
     RigidbodyConstraints originalConstraints;
     public GameObject explosion;
+    public Animator skillbuttoncontroller;
     private void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
@@ -33,24 +34,28 @@ public class Colliders : MonoBehaviour
             UIManager.instance.skillButton[0].SetActive(true);
             other.gameObject.SetActive(false);
             StartCoroutine(activeSkillPick(other.gameObject));
+            skillbuttoncontroller.SetTrigger("freez");
         }
         else if (other.gameObject.CompareTag("boost"))
         {
             UIManager.instance.skillButton[1].SetActive(true);
             other.gameObject.SetActive(false);
             StartCoroutine(activeSkillPick(other.gameObject));
+            skillbuttoncontroller.SetTrigger("boost");
         }
         else if (other.gameObject.CompareTag("shield"))
         {
             UIManager.instance.skillButton[2].SetActive(true);
             other.gameObject.SetActive(false);
             StartCoroutine(activeSkillPick(other.gameObject));
+            skillbuttoncontroller.SetTrigger("shield");
         }
         else if (other.gameObject.CompareTag("rocketpick"))
         {
             UIManager.instance.skillButton[3].SetActive(true);
             other.gameObject.SetActive(false);
             StartCoroutine(activeSkillPick(other.gameObject));
+            skillbuttoncontroller.SetTrigger("fire");
         }
 
     }

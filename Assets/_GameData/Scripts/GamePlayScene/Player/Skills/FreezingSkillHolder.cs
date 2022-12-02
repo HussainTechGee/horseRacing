@@ -8,6 +8,7 @@ public class FreezingSkillHolder : MonoBehaviour
     public BotPlyers[] players;
     bool freez;
     public float freeztimer = 1f;
+    public GameObject freezUI, icepartical;
 
     private void Start()
     {
@@ -49,5 +50,17 @@ public class FreezingSkillHolder : MonoBehaviour
             }
             freez = true;
         }
+        StartCoroutine(freezUIA());
+    }
+    IEnumerator freezUIA()
+    {
+        GetComponent<moveHorseSample>().RiderController.SetTrigger("freez");
+        icepartical.SetActive(true);
+
+        yield return new WaitForSeconds(.5f);
+        freezUI.SetActive(true);
+        yield return new WaitForSeconds(2.2f);
+        freezUI.SetActive(false);
+        icepartical.SetActive(false);
     }
 }

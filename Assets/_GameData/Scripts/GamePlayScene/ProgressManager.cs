@@ -14,10 +14,14 @@ public class ProgressManager : MonoBehaviour
     Vector3 oldpos;
     private float maxdistance, dis1, dis2;
     public float distancetraveled;
-
+    public GameObject playercanvas;
+    public Image positonimage;
+    public Sprite[] positions;
 
     void Start()
     {
+        playercanvas = transform.GetChild(0).GetChild(4).GetChild(1).GetChild(2).gameObject;
+        positonimage = playercanvas.transform.GetChild(0).GetComponent<Image>();
         //     if (instance == null)
         //     {
         //         instance = this;
@@ -50,6 +54,14 @@ public class ProgressManager : MonoBehaviour
             {
                 float distance = (getDistance() / maxdistance);
                 SetValue(distance);
+            }
+        }
+        if (this.position != 0 && this.position <= 3)
+        {
+            {
+                playercanvas.SetActive(true);
+                positonimage.gameObject.SetActive(true);
+                positonimage.sprite = positions[position - 1];
             }
         }
     }

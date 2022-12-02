@@ -107,19 +107,20 @@ public class moveHorseSample : MonoBehaviour
             Movement();
 
         }
-        else
+
+        // if (Input.GetMouseButtonDown(0) && !firstclick)
+
+
+    }
+    public void onSkipClick()
+    {
         {
-            if (Input.GetMouseButtonDown(0) && !firstclick)
-            {
-                StopAllCoroutines();
-                UIManager.instance.StopAllCoroutines();
-                // BotPlyers.instance.StopAllCoroutines();
-                StartCoroutine(UIManager.instance.gotostarttimePanel());
-                StartCoroutine(cutSceneScript.instance.gotostart());
-                StartCoroutine(gotostart());
-                // StartCoroutine(BotPlyers.instance.gotoStart());
-                firstclick = true;
-            }
+            StopAllCoroutines();
+            UIManager.instance.StopAllCoroutines();
+            StartCoroutine(UIManager.instance.gotostarttimePanel());
+            StartCoroutine(cutSceneScript.instance.gotostart());
+            StartCoroutine(gotostart());
+            // firstclick = true;
         }
     }
     IEnumerator gotostart()

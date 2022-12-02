@@ -13,10 +13,6 @@ public class BotsUsingSkills : MonoBehaviour
     {
         botsUsingSkills = this;
     }
-    private void Start()
-    {
-        StartCoroutine(useSkill());
-    }
     public IEnumerator useSkill()
     {
         float wait = Random.Range(3, 10);
@@ -28,6 +24,7 @@ public class BotsUsingSkills : MonoBehaviour
             {
                 GetComponent<BotsFreezingSkill>().freez();
                 canusefreezSkill = false;
+                Debug.LogError(gameObject.name + "usingfreez");
             }
         }
         else if (canuseBoostSkill)
@@ -36,6 +33,7 @@ public class BotsUsingSkills : MonoBehaviour
             {
                 GetComponent<BotsBoostingSkill>().boost();
                 canuseBoostSkill = false;
+                Debug.LogError(gameObject.name + "usingboost");
             }
         }
         else if (canuseshieldskill)
@@ -43,12 +41,12 @@ public class BotsUsingSkills : MonoBehaviour
 
             GetComponent<BotsShieldSkill>().onclickShield();
             canuseshieldskill = false;
+            Debug.LogError(gameObject.name + "usingshield");
         }
         else if (canuserocket)
         {
             GetComponent<horse_distance>().onClickFire();
             canuserocket = false;
         }
-        StartCoroutine(useSkill());
     }
 }

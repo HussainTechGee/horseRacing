@@ -97,15 +97,7 @@ public class BotPlyers : MonoBehaviour
                     icecubeObj.SetActive(false);
                 }
             }
-            else
-            {
-                if (Input.GetMouseButtonDown(0) && !firstclick)
-                {
-                    StopAllCoroutines();
-                    StartCoroutine(gotoStart());
-                    firstclick = true;
-                }
-            }
+
         }
         else
         {
@@ -115,6 +107,12 @@ public class BotPlyers : MonoBehaviour
 
         }
 
+    }
+    public void onSkipClick()
+    {
+        StopAllCoroutines();
+        StartCoroutine(gotoStart());
+        firstclick = true;
     }
     public IEnumerator gotoStart()
     {

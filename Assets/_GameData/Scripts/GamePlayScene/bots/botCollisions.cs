@@ -10,28 +10,28 @@ public class botCollisions : MonoBehaviour
         if (other.gameObject.CompareTag("freez"))
         {
             BotsUsingSkills.botsUsingSkills.canusefreezSkill = true;
-            StartCoroutine(gameObject.GetComponent<BotsUsingSkills>().useSkill());
+            StartCoroutine(transform.parent.GetComponent<BotsUsingSkills>().useSkill());
             other.gameObject.SetActive(false);
             StartCoroutine(activeSkillPick(other.gameObject));
         }
         else if (other.gameObject.CompareTag("boost"))
         {
             BotsUsingSkills.botsUsingSkills.canuseBoostSkill = true;
-            StartCoroutine(gameObject.GetComponent<BotsUsingSkills>().useSkill());
+            StartCoroutine(transform.parent.GetComponent<BotsUsingSkills>().useSkill());
             other.gameObject.SetActive(false);
             StartCoroutine(activeSkillPick(other.gameObject));
         }
         else if (other.gameObject.CompareTag("shield"))
         {
             BotsUsingSkills.botsUsingSkills.canuseshieldskill = true;
-            StartCoroutine(gameObject.GetComponent<BotsUsingSkills>().useSkill());
+            StartCoroutine(transform.parent.GetComponent<BotsUsingSkills>().useSkill());
             other.gameObject.SetActive(false);
             StartCoroutine(activeSkillPick(other.gameObject));
         }
         else if (other.gameObject.CompareTag("rocketpick"))
         {
             BotsUsingSkills.botsUsingSkills.canuserocket = true;
-            StartCoroutine(gameObject.GetComponent<BotsUsingSkills>().useSkill());
+            StartCoroutine(transform.parent.GetComponent<BotsUsingSkills>().useSkill());
             other.gameObject.SetActive(false);
             StartCoroutine(activeSkillPick(other.gameObject));
         }

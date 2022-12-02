@@ -5,7 +5,7 @@ using MoreMountains.NiceVibrations;
 public class landManager : MonoBehaviour
 {
     public GameObject dustPartical;
-
+    int num=1;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("foot"))
@@ -23,11 +23,19 @@ public class landManager : MonoBehaviour
 
     void footstep()
     {
-        int r = Random.Range(1, 5);
-        SoundManager.instance.Play("step" + r);
-        if (r != 3 && r != 1 && r != 5)
-        {
+        if (moveHorseSample.instance.start) {
+            SoundManager.instance.Play("step" + num);
             MMVibrationManager.Haptic(HapticTypes.LightImpact);
+            num++;
+            if (num > 2)
+            {
+                num = 1;
+            }
         }
+        
+        //if (r != 3 && r != 1 && r != 5)
+        //{
+        //    MMVibrationManager.Haptic(HapticTypes.LightImpact);
+        //}
     }
 }

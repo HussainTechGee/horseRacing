@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 58c88af3bc5ce064ea8a3c17ffb31596
+guid: b1ebebf535496194d8c48f9c0c47b66d
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -7,13 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Flage_Shd
-    second: {fileID: 2100000, guid: f8a71a82e2a1d1c468e1df9558045c87, type: 2}
+      name: Mex_Flag_02_Flag_Shd
+    second: {fileID: 2100000, guid: 76eaa839ae10d8f41babdffa26936ea1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Flage_Shd1
-    second: {fileID: 2100000, guid: c888fbb999f58f74f8b45e434035b89b, type: 2}
+      name: Mex_Flag_02_Stand
+    second: {fileID: 2100000, guid: b5a15ec04cd09dc488e0fb3a6e988ba9, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Flag
+    second: {fileID: 2800000, guid: ae6accccd4d02aa429e2bfc0d49b88d0, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

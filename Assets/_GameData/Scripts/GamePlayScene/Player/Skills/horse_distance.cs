@@ -23,42 +23,6 @@ public class horse_distance : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (startfire)
-        {
-            _time -= Time.deltaTime;
-            if (_time <= 0.5f)
-            {
-                dist1 = path.path.GetClosestDistanceAlongPath(horses[0].transform.position);
-                tempdist = dist1;
-                for (int i = 1; i < horses.Length; i++)
-                {
-                    dist2 = path.path.GetClosestDistanceAlongPath(horses[i].transform.position);
-                    if (dist2 > dist1)
-                    {
-                        if (dist2 > tempdist)
-                        {
-                            target = horses[i];
-                            tempdist = dist2;
-                        }
-
-
-                    }
-                }
-                if (firedRocket != null)
-                {
-                    firedRocket.SetActive(false);
-                }
-
-
-                // firedRocket = Instantiate(rocketPrefab, rocketStartPosition.position, rocketStartPosition.transform.rotation);
-                firedRocket = ObjectPooler.instance.SpawnFromPool("rocket", rocketStartPosition.position, rocketStartPosition.rotation);
-                mfiredRocket = firedRocket.GetComponent<Rigidbody>();
-                StartCoroutine(ResetRigidbodyAndDisable(mfiredRocket, firedRocket));
-                moverocket = true;
-                startfire = false;
-                _time = 1;
-            }
-        }
 
         if (moverocket)
         {
@@ -82,12 +46,40 @@ public class horse_distance : MonoBehaviour
     }
     public void onClickFire()
     {
+        moverocket = false;
         target = null;
         gameObject.transform.GetChild(0).GetComponent<BoxCollider>().enabled = false;
         RiderController.SetTrigger("firegun");
         Debug.LogError("Fired by :" + gameObject.name);
-
-        startfire = true;
+        StartCoroutine(rockerfire());
+        // startfire = true;
+    }
+    IEnumerator rockerfire()
+    {
+        yield return new WaitForSeconds(0.5f);
+        dist1 = path.path.GetClosestDistanceAlongPath(horses[0].transform.position);
+        tempdist = dist1;
+        for (int i = 1; i < horses.Length; i++)
+        {
+            dist2 = path.path.GetClosestDistanceAlongPath(horses[i].transform.position);
+            if (dist2 > dist1)
+            {
+                if (dist2 > tempdist)
+                {
+                    target = horses[i];
+                    tempdist = dist2;
+                }
+            }
+        }
+        if (firedRocket != null)
+        {
+            firedRocket.SetActive(false);
+        }
+        // firedRocket = Instantiate(rocketPrefab, rocketStartPosition.position, rocketStartPosition.transform.rotation);
+        firedRocket = ObjectPooler.instance.SpawnFromPool("rocket", rocketStartPosition.position, rocketStartPosition.rotation);
+        mfiredRocket = firedRocket.GetComponent<Rigidbody>();
+        StartCoroutine(ResetRigidbodyAndDisable(mfiredRocket, firedRocket));
+        moverocket = true;
     }
     Rigidbody mfiredRocket;
     IEnumerator ResetRigidbodyAndDisable(Rigidbody rb, GameObject rocketobj)

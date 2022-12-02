@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
 {
 
     public static UIManager instance;
-    public GameObject countingPanel, starting_gates;
+    public GameObject countingPanel, starting_gates, finishLine;
     public Sprite[] counting;
     public GameObject[] skillButton;
 
@@ -41,11 +41,12 @@ public class UIManager : MonoBehaviour
         countingPanel.SetActive(false);
         yield return new WaitForSeconds(3);
         starting_gates.SetActive(false);
+        finishLine.SetActive(true);
     }
     public IEnumerator gotostarttimePanel()
     {
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         countingPanel.SetActive(true);
         countingPanel.transform.GetChild(0).GetComponent<Image>().sprite = counting[0];
         MMVibrationManager.Haptic(HapticTypes.SoftImpact);
@@ -65,6 +66,11 @@ public class UIManager : MonoBehaviour
         countingPanel.SetActive(false);
         yield return new WaitForSeconds(3);
         starting_gates.SetActive(false);
+        finishLine.SetActive(true);
     }
 
+    public void onclickcontrol(bool istilt)
+    {
+        moveHorseSample.instance.isTilt = istilt;
+    }
 }

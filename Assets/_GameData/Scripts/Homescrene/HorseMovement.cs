@@ -30,6 +30,7 @@ public class HorseMovement : MonoBehaviour
         yield return new WaitForSeconds(.4f);
         animator.SetTrigger("run");
         yield return new WaitForSeconds(offTimer);
+        // animator.SetTrigger("run");
         gameObject.SetActive(false);
         // yield return new WaitForSeconds(startTimer / 2);
         // gameObject.SetActive(true);

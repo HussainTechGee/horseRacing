@@ -13,9 +13,13 @@ public class BotsUsingSkills : MonoBehaviour
     {
         botsUsingSkills = this;
     }
+    private void Start()
+    {
+        // StartCoroutine(useSkill());
+    }
     public IEnumerator useSkill()
     {
-        float wait = Random.Range(3, 7);
+        float wait = Random.Range(3, 10);
 
         yield return new WaitForSeconds(wait);
         if (canusefreezSkill)
@@ -45,5 +49,6 @@ public class BotsUsingSkills : MonoBehaviour
             GetComponent<horse_distance>().onClickFire();
             canuserocket = false;
         }
+        // StartCoroutine(useSkill());
     }
 }

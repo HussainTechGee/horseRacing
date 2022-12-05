@@ -7,16 +7,32 @@ public class BotsFreezingSkill : MonoBehaviour
     public static BotsFreezingSkill botsFreezingSkill;
     public BotPlyers bot1, bot2, bot3, bot4;
     public moveHorseSample player;
-    public float freeztimer = 1, freecooldown = 5;
+    public float freeztimer = 2.5f;
     public bool isfreez;
-    private void Update()
+    public void freez()
     {
-        if (isfreez)
+        this.StopAllCoroutines();
+        if (!player.shield)
         {
-            freeztimer -= Time.deltaTime;
-            freecooldown += Time.deltaTime;
+            player.freez = true;
+            StartCoroutine(player.GetComponent<FreezingSkillHolder>().freezUIA());
         }
-        if (freeztimer <= -1)
+        if (!bot1.shield)
+        { bot1.freez = true; }
+        if (!bot2.shield)
+        { bot2.freez = true; }
+        if (!bot3.shield)
+        { bot3.freez = true; }
+        if (!bot4.shield)
+        { bot4.freez = true; }
+        isfreez = true;
+
+        this.StartCoroutine(unfreezAll());
+    }
+    IEnumerator unfreezAll()
+    {
+        yield return new WaitForSeconds(freeztimer);
+        if (isfreez)
         {
             freeztimer = 1;
             player.freez = false;
@@ -25,28 +41,6 @@ public class BotsFreezingSkill : MonoBehaviour
             bot3.freez = false;
             bot4.freez = false;
             isfreez = false;
-
-        }
-        if (freecooldown >= 5)
-        {
-
-        }
-    }
-    public void freez()
-    {
-        {
-            if (!player.shield)
-            { player.freez = true; }
-            if (!bot1.shield)
-            { bot1.freez = true; }
-            if (!bot2.shield)
-            { bot2.freez = true; }
-            if (!bot3.shield)
-            { bot3.freez = true; }
-            if (!bot4.shield)
-            { bot4.freez = true; }
-            isfreez = true;
-            freecooldown = 0;
         }
     }
 }

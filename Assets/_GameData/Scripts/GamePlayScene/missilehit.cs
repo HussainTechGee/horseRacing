@@ -6,7 +6,7 @@ public class missilehit : MonoBehaviour
     public static missilehit instance;
     public GameObject targetobj, explosion;
     public bool rockethit;
-    bool isshield;
+    bool isshield, isfreez;
     private void Start()
     {
         instance = this;
@@ -24,12 +24,15 @@ public class missilehit : MonoBehaviour
         if (target.GetComponent<BotPlyers>() != null)
         {
             isshield = target.GetComponent<BotPlyers>().shield;
+            isfreez = target.GetComponent<BotPlyers>().freez;
+
         }
         else if (target.GetComponent<moveHorseSample>() != null)
         {
             isshield = target.GetComponent<moveHorseSample>().shield;
+            isfreez = target.GetComponent<moveHorseSample>().freez;
         }
-        if (!isshield)
+        if (!isshield && !isfreez)
         {
             target.transform.GetChild(0).GetComponent<Animator>().SetTrigger("death");
             if (target.GetComponent<BotPlyers>() != null)
@@ -81,6 +84,7 @@ public class missilehit : MonoBehaviour
             target.transform.GetChild(0).GetComponent<Animator>().SetTrigger("sprint");
             target.transform.GetChild(0).GetChild(4).GetComponent<Animator>().SetTrigger("sprint");
             isshield = false;
+            isfreez = false;
         }
         yield return new WaitForSeconds(1f);
         targetobj = null;

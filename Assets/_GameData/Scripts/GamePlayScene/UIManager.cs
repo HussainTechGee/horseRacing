@@ -26,6 +26,7 @@ public class UIManager : MonoBehaviour
     {
         yield return new WaitForSeconds(12f);
         countingPanel.SetActive(true);
+        skipbutton.SetActive(false);
         countingPanel.transform.GetChild(0).GetComponent<Image>().sprite = counting[0];
         SoundManager.instance.Play("count");
         MMVibrationManager.Haptic(HapticTypes.SoftImpact);
@@ -43,9 +44,14 @@ public class UIManager : MonoBehaviour
         countingPanel.transform.GetChild(0).GetComponent<Image>().sprite = counting[2];
         SoundManager.instance.Play("count");
         MMVibrationManager.Haptic(HapticTypes.SoftImpact);
-        yield return new WaitForSeconds(.9f);
+        yield return new WaitForSeconds(.5f);
+        for (int i = 0; i < starting_gates.transform.childCount; i++)
+        {
+            starting_gates.transform.GetChild(i).GetComponent<StartingGates>().openGates();
+        }
+        yield return new WaitForSeconds(.4f);
         countingPanel.SetActive(false);
-        skipbutton.SetActive(false);
+
         if (moveHorseSample.instance.isTilt)
         {
             taportilt.transform.GetChild(0).gameObject.SetActive(true);
@@ -64,9 +70,9 @@ public class UIManager : MonoBehaviour
     }
     public IEnumerator gotostarttimePanel()
     {
-
         yield return new WaitForSeconds(5f);
         countingPanel.SetActive(true);
+        skipbutton.SetActive(false);
         countingPanel.transform.GetChild(0).GetComponent<Image>().sprite = counting[0];
         SoundManager.instance.Play("count");
         MMVibrationManager.Haptic(HapticTypes.SoftImpact);
@@ -84,9 +90,14 @@ public class UIManager : MonoBehaviour
         countingPanel.transform.GetChild(0).GetComponent<Image>().sprite = counting[2];
         SoundManager.instance.Play("count");
         MMVibrationManager.Haptic(HapticTypes.SoftImpact);
-        yield return new WaitForSeconds(.9f);
+        yield return new WaitForSeconds(.5f);
+        for (int i = 0; i < starting_gates.transform.childCount; i++)
+        {
+            starting_gates.transform.GetChild(i).GetComponent<StartingGates>().openGates();
+        }
+        yield return new WaitForSeconds(.4f);
         countingPanel.SetActive(false);
-        skipbutton.SetActive(false);
+
         if (moveHorseSample.instance.isTilt)
         {
             taportilt.transform.GetChild(0).gameObject.SetActive(true);

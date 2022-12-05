@@ -35,7 +35,9 @@ public class moveHorseSample : MonoBehaviour
 
     IEnumerator StartGame()
     {
-        yield return new WaitForSeconds(15);
+        yield return new WaitForSeconds(10f);
+        UIManager.instance.skipbutton.SetActive(false);
+        yield return new WaitForSeconds(5f);
         HorseController.SetTrigger("run");
         RiderController.SetTrigger("run");
         speed = speed * 4;
@@ -48,7 +50,6 @@ public class moveHorseSample : MonoBehaviour
     }
     private void Update()
     {
-
         if (start)
         {
             if (!win)
@@ -178,37 +179,38 @@ public class moveHorseSample : MonoBehaviour
                 IcecubeObj.SetActive(false);
                 boostObj.SetActive(false);
             }
-            else if (boost && !freez)
+            else if ((boost && shield) || (shield && boost))
             {
                 horsewithrider.transform.Translate(0, 0, 0 + speed * boostfactor * Time.deltaTime);
                 HorseController.speed = 1.6f;
                 RiderController.speed = 1.6f;
                 boostObj.SetActive(true);
+                shieldobject.SetActive(true);
+                IcecubeObj.SetActive(false);
             }
-            else if (freez && !shield && !boost)
+            else if (shield && !boost)
+            {
+                horsewithrider.transform.Translate(0, 0, 0 + speed * Time.deltaTime);
+                HorseController.speed = 1f;
+                RiderController.speed = 1f;
+                freez = false;
+                shieldobject.SetActive(true);
+                IcecubeObj.SetActive(false);
+            }
+            else if ((freez && !shield && !boost) || (freez && !shield && boost))
             {
                 horsewithrider.transform.Translate(0, 0, 0 + (speed * Time.deltaTime) * 0);
                 HorseController.speed = 0f;
                 RiderController.speed = 0f;
                 IcecubeObj.SetActive(true);
-            }
 
-            else if (boost && shield)
+            }
+            else if (boost && !freez && !shield)
             {
                 horsewithrider.transform.Translate(0, 0, 0 + speed * boostfactor * Time.deltaTime);
                 HorseController.speed = 1.6f;
                 RiderController.speed = 1.6f;
                 boostObj.SetActive(true);
-                shieldobject.SetActive(true);
-                IcecubeObj.SetActive(false);
-            }
-            else if (shield)
-            {
-                horsewithrider.transform.Translate(0, 0, 0 + speed * Time.deltaTime);
-                HorseController.speed = 1f;
-                RiderController.speed = 1f;
-                shieldobject.SetActive(true);
-                IcecubeObj.SetActive(false);
             }
             else if (freez && boost)
             {
@@ -228,10 +230,7 @@ public class moveHorseSample : MonoBehaviour
             IcecubeObj.SetActive(false);
             boostObj.SetActive(false);
         }
-
-
     }
-
     public void homeBtnClick()
     {
         SceneManager.LoadScene(0);

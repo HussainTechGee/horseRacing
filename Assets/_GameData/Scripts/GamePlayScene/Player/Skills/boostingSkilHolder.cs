@@ -5,7 +5,7 @@ using UnityEngine;
 public class boostingSkilHolder : MonoBehaviour
 {
     public static boostingSkilHolder instance;
-    public float boosttimer = 1;
+    public float boosttimer = 2;
     bool boost;
 
     private void Start()
@@ -15,25 +15,20 @@ public class boostingSkilHolder : MonoBehaviour
             instance = this;
         }
     }
-    private void Update()
+    public void onBoostBtnClick()
     {
+        this.StopAllCoroutines();
+        gameObject.GetComponent<moveHorseSample>().boost = true;
+        boost = true;
+        StartCoroutine(stopBooster());
+    }
+    IEnumerator stopBooster()
+    {
+        yield return new WaitForSeconds(boosttimer);
         if (boost)
-        {
-            boosttimer -= Time.deltaTime;
-        }
-
-        if (boosttimer <= -1)
         {
             gameObject.GetComponent<moveHorseSample>().boost = false;
             boost = false;
-            boosttimer = 1;
         }
     }
-
-    public void onBoostBtnClick()
-    {
-        gameObject.GetComponent<moveHorseSample>().boost = true;
-        boost = true;
-    }
-
 }

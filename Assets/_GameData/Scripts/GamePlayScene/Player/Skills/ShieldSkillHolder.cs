@@ -6,30 +6,23 @@ public class ShieldSkillHolder : MonoBehaviour
 {
     public static ShieldSkillHolder instance;
 
-    public float shieldtime = 1, shieldcooldowntime = 5;
+    public float shieldtime = 5;
     bool isShield;
-
-    private void Update()
-    {
-        if (isShield)
-        {
-            shieldtime -= Time.deltaTime;
-            shieldcooldowntime += Time.deltaTime;
-        }
-        if (shieldtime <= -1)
-        {
-            shieldtime = 1;
-            GetComponent<moveHorseSample>().shield = false;
-
-            isShield = false;
-        }
-    }
-
-
     public void onclickShield()
     {
+        StopAllCoroutines();
         GetComponent<moveHorseSample>().shield = true;
         isShield = true;
+        StartCoroutine(unApplyShield());
+    }
+    IEnumerator unApplyShield()
+    {
+        yield return new WaitForSeconds(shieldtime);
+        if (isShield)
+        {
+            GetComponent<moveHorseSample>().shield = false;
+            isShield = false;
+        }
     }
 
 }

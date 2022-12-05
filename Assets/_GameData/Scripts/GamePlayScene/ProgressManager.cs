@@ -56,13 +56,11 @@ public class ProgressManager : MonoBehaviour
                 SetValue(distance);
             }
         }
-        if (this.position != 0 && this.position <= 3)
+        if (GetComponent<ProgressManager>().position != 0 && GetComponent<ProgressManager>().position <= 3)
         {
-            {
-                playercanvas.SetActive(true);
-                positonimage.gameObject.SetActive(true);
-                positonimage.sprite = positions[position - 1];
-            }
+            // GetComponent<ProgressManager>().playercanvas.SetActive(true);
+            GetComponent<ProgressManager>().positonimage.gameObject.SetActive(true);
+            GetComponent<ProgressManager>().positonimage.sprite = positions[position - 1];
         }
     }
     private float getDistance()

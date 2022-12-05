@@ -21,6 +21,7 @@ public class BotPlyers : MonoBehaviour
         RiderController = transform.GetChild(0).GetChild(4).GetComponent<Animator>();
         speed = speed / 4;
         StartCoroutine(StartGame());
+
     }
     IEnumerator StartGame()
     {
@@ -76,7 +77,17 @@ public class BotPlyers : MonoBehaviour
                     shieldobj.SetActive(true);
                     icecubeObj.SetActive(false);
                 }
-                else if (freez && !shield)
+                else if (freez && !shield && boost)
+                {
+                    distancetravled += speed * 0 * Time.deltaTime;
+                    transform.position = pathCreator.path.GetPointAtDistance(distancetravled);
+                    transform.rotation = pathCreator.path.GetRotationAtDistance(distancetravled);
+                    botAnimator.speed = 0f;
+                    RiderController.speed = 0f;
+                    boostObj.SetActive(false);
+                    icecubeObj.SetActive(true);
+                }
+                else if (freez && !shield && !boost)
                 {
                     distancetravled += speed * 0 * Time.deltaTime;
                     transform.position = pathCreator.path.GetPointAtDistance(distancetravled);
@@ -86,7 +97,8 @@ public class BotPlyers : MonoBehaviour
 
                     icecubeObj.SetActive(true);
                 }
-                else if (shield)
+
+                else if (shield && !boost)
                 {
                     distancetravled += speed * Time.deltaTime;
                     transform.position = pathCreator.path.GetPointAtDistance(distancetravled);
@@ -94,6 +106,7 @@ public class BotPlyers : MonoBehaviour
                     botAnimator.speed = 1.2f;
                     RiderController.speed = 1.2f;
                     shieldobj.SetActive(true);
+                    boostObj.SetActive(false);
                     icecubeObj.SetActive(false);
                 }
             }

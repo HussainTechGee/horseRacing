@@ -1,33 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de70b54c49296d54e9d66f8b8b4144b1, type: 3}
-  m_Name: Dir Dodge 4 Sides
-  m_EditorClassIdentifier: 
-  Desc: 'The Dodge will be done with Horizontal and Vertical Sides
-
-    Ability 1:
-    Dodge Front
-
-    Ability 2: Dodge Right
-
-    Ability 3: Dodge Back
-
-    Ability
-    4: Dodge Left
-
-'
-  direction: 1
-  MoveDodge: 1
-  DodgeDistance:
-    UseConstant: 1
-    ConstantValue: 2
-    Variable: {fileID: 0}
+version https://git-lfs.github.com/spec/v1
+oid sha256:5abee20adb498f6300e35672107f0807c346cc2f83a8a575760ee651dece4f9a
+size 740

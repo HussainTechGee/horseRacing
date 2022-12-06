@@ -1,24 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b4f81d7422aa214cbffb3e3b1ba71c6, type: 3}
-  m_Name: Jump Activate
-  m_EditorClassIdentifier: 
-  description: Tries to activate a state, checking all the activation conditions
-  active: 1
-  delay: 0
-  fullName: "State \u2192 Activate [Jump]"
-  type: 0
-  ID: {fileID: 11400000, guid: 9ae07cd2f8f4c054687fecf634f8e5b3, type: 2}
-  ExitStatus: 0
-  EnterStatus: 0
-  ShowExitStatus: 0
-  ShowEnterStatus: 1
+version https://git-lfs.github.com/spec/v1
+oid sha256:9987070e90640aa1f222cde6af915e7ccf1339ccff27bb641cd3cf8385a0574b
+size 731

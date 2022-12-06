@@ -1,16 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6b37728fc2778049bf789f6eac9305a, type: 3}
-  m_Name: Close Door
-  m_EditorClassIdentifier: 
-  DisplayName: Interact/Close Door
-  ID: 31
+version https://git-lfs.github.com/spec/v1
+oid sha256:35c47355c692bf3c48c8abff1dcc165c8ced59155a6a42cee92f34f1ca873ace
+size 459

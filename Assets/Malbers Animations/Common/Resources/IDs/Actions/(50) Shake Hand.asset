@@ -1,16 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6b37728fc2778049bf789f6eac9305a, type: 3}
-  m_Name: (50) Shake Hand
-  m_EditorClassIdentifier: 
-  ID: 50
-  DisplayName: Human/Shake Hands
+version https://git-lfs.github.com/spec/v1
+oid sha256:5c1ff1fc14e696b4b70c9b3e0dfeea1c74d19f0a138e28e1f3dc91fe5e2058ea
+size 462

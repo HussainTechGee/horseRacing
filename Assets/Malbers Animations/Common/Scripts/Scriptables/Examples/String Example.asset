@@ -1,15 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10d4ebb914b3bbd43a7bb647b6826474, type: 3}
-  m_Name: String Example
-  m_EditorClassIdentifier: 
-  Description: This is an example for a String Scriptable Variable
-  value: Exampleee
+version https://git-lfs.github.com/spec/v1
+oid sha256:cbf81d331f0edef0653659f45c1ec184152839773f89bd52220e3ee2c1762e49
+size 468

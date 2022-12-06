@@ -1,20 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c084bb85b499301498518868eb44437c, type: 3}
-  m_Name: Button Modify Stat
-  m_EditorClassIdentifier: 
-  Description: 'String & Int: Pin Stat
-
-    Float: Modify Stat
-
-    Void: Update all Stats'
-  debug: 1
+version https://git-lfs.github.com/spec/v1
+oid sha256:1ea4a544cad347b2c3a5e8e34d23e0bb7a3a7262d1bc7afb1bf3bca6fde16f07
+size 530

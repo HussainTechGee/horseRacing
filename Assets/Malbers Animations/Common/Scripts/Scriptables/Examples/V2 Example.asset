@@ -1,15 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed5196e635547a445a9b18f6119d56c4, type: 3}
-  m_Name: V2 Example
-  m_EditorClassIdentifier: 
-  Description: This is an example for a Vector2 Scriptable Variable
-  value: {x: 5, y: 6}
+version https://git-lfs.github.com/spec/v1
+oid sha256:a7f367b291a34b9b91704b0e25ac984c9f85266d379e04dc1694a422e1b42614
+size 468

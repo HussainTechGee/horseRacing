@@ -1,14 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3eb17ad6c31d9eb4388e6e95d0d0c574, type: 3}
-  m_Name: Locomotion
-  m_EditorClassIdentifier: 
-  ID: 1
+version https://git-lfs.github.com/spec/v1
+oid sha256:569fed302eb815614317156fc49ffa88615d4cf316aef2a0cc3dd2a6c12f8b2e
+size 385

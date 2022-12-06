@@ -1,16 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 430f4b739740ffb4ba6961f6bb00f801, type: 3}
-  m_Name: Human Air Rotation
-  m_EditorClassIdentifier: 
-  Description: Movement Rotation value for the Human while is on the Air
-  value: 5
+version https://git-lfs.github.com/spec/v1
+oid sha256:8127261d87bffb00268b8775739de9ef3db30699ba7ce5f6ecc3c4e68216b33c
+size 507

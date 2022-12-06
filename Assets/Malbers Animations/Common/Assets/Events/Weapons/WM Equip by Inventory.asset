@@ -1,14 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c084bb85b499301498518868eb44437c, type: 3}
-  m_Name: WM Equip by Inventory
-  m_EditorClassIdentifier: 
-  Description: Equip an weapon on the Inventory
+version https://git-lfs.github.com/spec/v1
+oid sha256:d168830eeeee64d334506258e56d7a9fe0cb49bc95cb2ee48e602dd0e8e00acd
+size 436

@@ -1,15 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98ea95601fbf85b49b69663c2b27fbf0, type: 3}
-  m_Name: Air (Stat)
-  m_EditorClassIdentifier: 
-  Description: Int value for the Air Stat ID
-  value: 4
+version https://git-lfs.github.com/spec/v1
+oid sha256:143205a19ba530862763953a6085161cac69f56a4b746ce12c5db177a38b406d
+size 434

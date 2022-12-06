@@ -1,22 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9176d65901bdc7c4bbcc36cf5d310741, type: 3}
-  m_Name: Stance to Default
-  m_EditorClassIdentifier: 
-  Description: Change to Default Stance on Self
-  MessageID:
-    UseConstant: 1
-    ConstantValue: 2000
-    Variable: {fileID: 0}
-  WaitForPreviousTask: 0
-  affect: 0
-  stance: {fileID: 11400000, guid: 87ae38bfe93fc3f449ecd25863e2a6fe, type: 2}
+version https://git-lfs.github.com/spec/v1
+oid sha256:e41d6e85297b92d793081431852c20f7480bbbd9fc64cd0339bf483040ac73f3
+size 673

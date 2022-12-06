@@ -1,15 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 430f4b739740ffb4ba6961f6bb00f801, type: 3}
-  m_Name: Health Value
-  m_EditorClassIdentifier: 
-  Description: Scriptable Float to Store the Health Value
-  value: 100
+version https://git-lfs.github.com/spec/v1
+oid sha256:22bcb4493c777de8fb2f2d7d8907100bccf9ba09233bb25cf037bc4a188c862f
+size 451

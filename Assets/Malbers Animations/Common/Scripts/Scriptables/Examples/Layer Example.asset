@@ -1,18 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d496f8f89b324ac42b49bc3acaa049d9, type: 3}
-  m_Name: Layer Example
-  m_EditorClassIdentifier: 
-  Description: Layer Mask Scriptable Variable example
-  value:
-    serializedVersion: 2
-    m_Bits: 1
+version https://git-lfs.github.com/spec/v1
+oid sha256:d7a47847aae186c052204a875fbf8438b91271b10604275832d553a78314517a
+size 522

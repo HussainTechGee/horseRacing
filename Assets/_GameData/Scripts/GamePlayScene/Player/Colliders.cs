@@ -92,8 +92,8 @@ public class Colliders : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("rocket"))
         {
-            Debug.Log(gameObject.transform.parent.name);
-            Debug.Log("rockethit");
+            // Debug.Log(gameObject.transform.parent.name);
+            // Debug.Log("rockethit");
             explosion.SetActive(true);
             explosion.transform.GetChild(0).gameObject.SetActive(true);
             explosion.transform.GetChild(1).gameObject.SetActive(true);

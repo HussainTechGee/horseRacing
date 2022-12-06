@@ -1,16 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6b37728fc2778049bf789f6eac9305a, type: 3}
-  m_Name: Confuse
-  m_EditorClassIdentifier: 
-  ID: 106
-  DisplayName: Emotion/Confuse
+version https://git-lfs.github.com/spec/v1
+oid sha256:ad4a3b7b37ea513a6116eca87747b493848670fa3cbf59351be58755d2b5b369
+size 453

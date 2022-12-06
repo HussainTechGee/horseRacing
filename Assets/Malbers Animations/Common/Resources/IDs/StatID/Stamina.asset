@@ -1,14 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6bc9525668e41846992f78c6d05b3b6, type: 3}
-  m_Name: Stamina
-  m_EditorClassIdentifier: 
-  ID: 2
+version https://git-lfs.github.com/spec/v1
+oid sha256:386e64fed753c9365552a3935a1245cd54c11636df16c35504f781933225438f
+size 382

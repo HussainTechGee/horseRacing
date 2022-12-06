@@ -24,7 +24,7 @@ public class BotsUsingSkills : MonoBehaviour
             {
                 GetComponent<BotsFreezingSkill>().freez();
                 canusefreezSkill = false;
-                Debug.LogError(gameObject.name + "usingfreez");
+                // Debug.LogError(gameObject.name + "usingfreez");
             }
         }
         else if (canuseBoostSkill)
@@ -33,7 +33,7 @@ public class BotsUsingSkills : MonoBehaviour
             {
                 GetComponent<BotsBoostingSkill>().boost();
                 canuseBoostSkill = false;
-                Debug.LogError(gameObject.name + "usingboost");
+                // Debug.LogError(gameObject.name + "usingboost");
             }
         }
         else if (canuseshieldskill)
@@ -41,7 +41,7 @@ public class BotsUsingSkills : MonoBehaviour
 
             GetComponent<BotsShieldSkill>().onclickShield();
             canuseshieldskill = false;
-            Debug.LogError(gameObject.name + "usingshield");
+            // Debug.LogError(gameObject.name + "usingshield");
         }
         else if (canuserocket)
         {

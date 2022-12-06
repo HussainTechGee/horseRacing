@@ -1,16 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6b37728fc2778049bf789f6eac9305a, type: 3}
-  m_Name: (21) Perching
-  m_EditorClassIdentifier: 
-  ID: 21
-  DisplayName: In Air/Perch
+version https://git-lfs.github.com/spec/v1
+oid sha256:530db01b01ee71ad7bf7a256abb60c96c03aa8762a60813e0200b2b244f6a26a
+size 455

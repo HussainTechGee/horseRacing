@@ -32,7 +32,7 @@ public class horse_distance : MonoBehaviour
                 {
                     firedRocket.transform.LookAt(target.transform);
                     firedRocket.transform.GetChild(0).position = Vector3.MoveTowards(firedRocket.transform.GetChild(0).position,
-                     new Vector3(target.transform.position.x, 2.5f, target.transform.position.z), 150 * Time.deltaTime);
+                     new Vector3(target.transform.position.x, 2.5f, target.transform.position.z), 200 * Time.deltaTime);
                     // firedRocket.transform.position = firedRocket.transform.GetChild(0).position;
                     // firedRocket.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * 10, ForceMode.VelocityChange);
                     // firedRocket.transform.GetChild(0).transform.position = firedRocket.transform.position;
@@ -50,7 +50,7 @@ public class horse_distance : MonoBehaviour
         target = null;
         gameObject.transform.GetChild(0).GetComponent<BoxCollider>().enabled = false;
         RiderController.SetTrigger("firegun");
-        Debug.LogError("Fired by :" + gameObject.name);
+        // Debug.LogError("Fired by :" + gameObject.name);
         StartCoroutine(rockerfire());
         // startfire = true;
     }

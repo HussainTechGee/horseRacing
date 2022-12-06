@@ -9,7 +9,7 @@ public class BotPlyers : MonoBehaviour
     [HideInInspector] public Animator botAnimator, RiderController;
     public PathCreator pathCreator;
     public float speed, boostFactor, startSpeed;
-    float distancetravled;
+    [SerializeField] float distancetravled;
     public bool freez, boost, win, shield;
     public GameObject shieldobj, icecubeObj, boostObj;
     bool start = true, firstclick;

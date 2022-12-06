@@ -1,14 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fca34201e166e494a8840e3110a6b832, type: 3}
-  m_Name: Stand
-  m_EditorClassIdentifier: 
-  ID: 4
+version https://git-lfs.github.com/spec/v1
+oid sha256:956408cdd6d3fda9d856f944763ad25c4d9b05eee5143d7f8965e01e16cecfa9
+size 380

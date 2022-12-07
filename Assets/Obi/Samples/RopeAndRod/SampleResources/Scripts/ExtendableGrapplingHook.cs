@@ -37,7 +37,7 @@ public class ExtendableGrapplingHook : MonoBehaviour
     private ObiRopeCursor cursor;
 
     private RaycastHit hookAttachment;
-
+    public Transform target;
     void Awake()
     {
 
@@ -81,11 +81,15 @@ public class ExtendableGrapplingHook : MonoBehaviour
         Vector3 mouseInScene = Camera.main.ScreenToWorldPoint(mouse);
 
         // Get a ray from the character to the mouse:
-        Ray ray = new Ray(transform.position, mouseInScene - transform.position);
+        // Ray ray = new Ray(transform.position, mouseInScene - transform.position);
+        Ray ray = new Ray(transform.position, target.localPosition - transform.position);
+
 
         // Raycast to see what we hit:
         if (Physics.Raycast(ray, out hookAttachment))
         {
+            Debug.LogError(target.localPosition);
+            Debug.DrawRay(gameObject.transform.localPosition, target.position, Color.blue, 5f);
             // We actually hit something, so attach the hook!
             StartCoroutine(AttachHook());
         }
@@ -111,7 +115,7 @@ public class ExtendableGrapplingHook : MonoBehaviour
 
         // Generate the particle representation of the rope (wait until it has finished):
         yield return blueprint.Generate();
-        
+
         // Set the blueprint (this adds particles/constraints to the solver and starts simulating them).
         rope.ropeBlueprint = blueprint;
 
@@ -171,7 +175,7 @@ public class ExtendableGrapplingHook : MonoBehaviour
         // Pin both ends of the rope (this enables two-way interaction between character and rope):
         var batch = new ObiPinConstraintsBatch();
         batch.AddConstraint(rope.elements[0].particle1, character, transform.localPosition, Quaternion.identity, 0, 0, float.PositiveInfinity);
-        batch.AddConstraint(rope.elements[rope.elements.Count-1].particle2, hookAttachment.collider.GetComponent<ObiColliderBase>(),
+        batch.AddConstraint(rope.elements[rope.elements.Count - 1].particle2, hookAttachment.collider.GetComponent<ObiColliderBase>(),
                                                           hookAttachment.collider.transform.InverseTransformPoint(hookAttachment.point), Quaternion.identity, 0, 0, float.PositiveInfinity);
         batch.activeConstraintCount = 2;
         pinConstraints.AddBatch(batch);
@@ -192,10 +196,10 @@ public class ExtendableGrapplingHook : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (!rope.isLoaded)
-                LaunchHook();
-            else
-                DetachHook();
+            // if (!rope.isLoaded)
+            //     LaunchHook();
+            // else
+            //     DetachHook();
         }
 
         if (rope.isLoaded)
@@ -209,5 +213,13 @@ public class ExtendableGrapplingHook : MonoBehaviour
                 cursor.ChangeLength(rope.restLength + hookExtendRetractSpeed * Time.deltaTime);
             }
         }
+    }
+
+    public void onclickrope()
+    {
+        if (!rope.isLoaded)
+            LaunchHook();
+        else
+            DetachHook();
     }
 }

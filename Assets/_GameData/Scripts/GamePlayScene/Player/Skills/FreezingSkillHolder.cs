@@ -51,7 +51,7 @@ public class FreezingSkillHolder : MonoBehaviour
     public IEnumerator freezUIA()
     {
         yield return null;
-        freezUI.SetActive(true);
+        // freezUI.SetActive(true);
         freezUI.GetComponent<Image>().DOFade(.2f, 0.3f);
         yield return new WaitForSeconds(0.4f);
         freezUI.GetComponent<Image>().DOFade(1f, 0.3f);
@@ -64,7 +64,19 @@ public class FreezingSkillHolder : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         freezUI.GetComponent<Image>().DOFade(1f, 0.3f);
         yield return new WaitForSeconds(0.4f);
-        freezUI.SetActive(false);
+        freezUI.GetComponent<Image>().DOFade(.2f, 0.3f);
+        yield return new WaitForSeconds(0.4f);
+        freezUI.GetComponent<Image>().DOFade(1f, 0.3f);
+        yield return new WaitForSeconds(0.4f);
+        freezUI.GetComponent<Image>().DOFade(0.2f, 0.3f);
+        yield return new WaitForSeconds(0.4f);
+        freezUI.GetComponent<Image>().DOFade(1f, 0.3f);
+        yield return new WaitForSeconds(0.4f);
+        freezUI.GetComponent<Image>().DOFade(0.2f, 0.3f);
+        yield return new WaitForSeconds(0.4f);
+        freezUI.GetComponent<Image>().DOFade(1f, 0.3f);
+        yield return new WaitForSeconds(0.4f);
+        // freezUI.SetActive(false);
 
     }
 }

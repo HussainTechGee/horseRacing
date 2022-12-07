@@ -178,8 +178,12 @@ public class moveHorseSample : MonoBehaviour
                 shieldobject.SetActive(false);
                 IcecubeObj.SetActive(false);
                 boostObj.SetActive(false);
+                if (FreezingSkillHolder.instance.freezUI.activeInHierarchy)
+                {
+                    FreezingSkillHolder.instance.freezUI.SetActive(false);
+                }
             }
-            else if ((boost && shield) || (shield && boost))
+            else if ((boost && shield && freez) || (boost && shield && !freez))
             {
                 horsewithrider.transform.Translate(0, 0, 0 + speed * boostfactor * Time.deltaTime);
                 HorseController.speed = 1.6f;
@@ -187,22 +191,39 @@ public class moveHorseSample : MonoBehaviour
                 boostObj.SetActive(true);
                 shieldobject.SetActive(true);
                 IcecubeObj.SetActive(false);
+                freez = false;
+                if (FreezingSkillHolder.instance.freezUI.activeInHierarchy)
+                {
+                    FreezingSkillHolder.instance.freezUI.SetActive(false);
+                }
             }
-            else if (shield && !boost)
+            else if ((shield && !boost && freez) || (shield && !boost && !freez))
             {
                 horsewithrider.transform.Translate(0, 0, 0 + speed * Time.deltaTime);
                 HorseController.speed = 1f;
                 RiderController.speed = 1f;
-                freez = false;
                 shieldobject.SetActive(true);
                 IcecubeObj.SetActive(false);
+                freez = false;
+                if (FreezingSkillHolder.instance.freezUI.activeInHierarchy)
+                {
+                    FreezingSkillHolder.instance.freezUI.SetActive(false);
+                }
             }
-            else if ((freez && !shield && !boost) || (freez && !shield && boost))
+            else if (freez && !shield && !boost)
             {
                 horsewithrider.transform.Translate(0, 0, 0 + (speed * Time.deltaTime) * 0);
                 HorseController.speed = 0f;
                 RiderController.speed = 0f;
+                boostObj.SetActive(false);
                 IcecubeObj.SetActive(true);
+                // StopCoroutine(FreezingSkillHolder.instance.freezUIA());
+                if (!FreezingSkillHolder.instance.freezUI.activeInHierarchy)
+                {
+                    FreezingSkillHolder.instance.freezUI.SetActive(true);
+                }
+                // StartCoroutine(FreezingSkillHolder.instance.freezUIA());
+
 
             }
             else if (boost && !freez && !shield)
@@ -211,14 +232,25 @@ public class moveHorseSample : MonoBehaviour
                 HorseController.speed = 1.6f;
                 RiderController.speed = 1.6f;
                 boostObj.SetActive(true);
+                shieldobject.SetActive(false);
+                if (FreezingSkillHolder.instance.freezUI.activeInHierarchy)
+                {
+                    FreezingSkillHolder.instance.freezUI.SetActive(false);
+                }
             }
-            else if (freez && boost)
+            else if (freez && boost && !shield)
             {
                 horsewithrider.transform.Translate(0, 0, 0 + (speed * Time.deltaTime) * 0);
                 HorseController.speed = 0f;
                 RiderController.speed = 0f;
                 IcecubeObj.SetActive(true);
                 boostObj.SetActive(false);
+                // StopCoroutine(FreezingSkillHolder.instance.freezUIA());
+                if (!FreezingSkillHolder.instance.freezUI.activeInHierarchy)
+                {
+                    FreezingSkillHolder.instance.freezUI.SetActive(true);
+                }
+                // StartCoroutine(FreezingSkillHolder.instance.freezUIA());
             }
         }
         else
@@ -229,6 +261,10 @@ public class moveHorseSample : MonoBehaviour
             shieldobject.SetActive(false);
             IcecubeObj.SetActive(false);
             boostObj.SetActive(false);
+            if (FreezingSkillHolder.instance.freezUI.activeInHierarchy)
+            {
+                FreezingSkillHolder.instance.freezUI.SetActive(false);
+            }
         }
     }
     public void homeBtnClick()

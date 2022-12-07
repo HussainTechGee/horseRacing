@@ -15,6 +15,7 @@ public class BotsFreezingSkill : MonoBehaviour
         if (!player.shield)
         {
             player.freez = true;
+            StopCoroutine(player.GetComponent<FreezingSkillHolder>().freezUIA());
             StartCoroutine(player.GetComponent<FreezingSkillHolder>().freezUIA());
         }
         if (!bot1.shield)

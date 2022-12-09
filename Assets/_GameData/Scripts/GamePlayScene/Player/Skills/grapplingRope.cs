@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using PathCreation;
 using UnityEngine;
 
 public class grapplingRope : MonoBehaviour
 {
     [SerializeField] private GameObject rope;
-    // [SerializeField] private GameObject ropeprefab;
-    // [SerializeField] private Transform ropecirclestart;
+    [SerializeField] private GameObject[] horses;
+    [SerializeField] private PathCreator path;
     [SerializeField] private Transform target;
     [SerializeField] private float grapplespeed;
     [SerializeField] private LineRenderer _linerenderer;
@@ -14,13 +15,15 @@ public class grapplingRope : MonoBehaviour
     [SerializeField] private bool grapple;
     [SerializeField] private Animator ridercontroller;
     [SerializeField] AttackTriggerandler AttackTrigger;
+    float dist1, dist2, tempdist;
 
     GameObject currentrope;
     private void Start()
+
     {
+
         // ropecirclestart = rope.transform;
         _linerenderer.enabled = false;
-
     }
     private void Update()
     {
@@ -48,9 +51,33 @@ public class grapplingRope : MonoBehaviour
     }
     public void startgrapple()
     {
-        if (AttackTrigger.targetobject != null)
+        bool firsttime = false;
+        dist1 = path.path.GetClosestDistanceAlongPath(gameObject.transform.GetChild(0).position);
+
+        for (int i = 0; i < horses.Length; i++)
         {
-            target = AttackTrigger.targetobject.transform.GetChild(13);
+            dist2 = path.path.GetClosestDistanceAlongPath(horses[i].transform.GetChild(0).position);
+            if (dist2 > dist1)
+            {
+                if (!firsttime)
+                {
+                    tempdist = dist2;
+                    target = horses[i].transform.GetChild(0).GetChild(13);
+                    firsttime = true;
+                }
+                else if (tempdist > dist2)
+                {
+                    tempdist = dist2;
+                    target = horses[i].transform.GetChild(0).GetChild(13);
+                }
+
+
+                // if (dist2 < tempdist)
+                // {
+
+                //     // tempdist = dist2;
+                // }
+            }
         }
         if (target != null)
         {
@@ -60,6 +87,7 @@ public class grapplingRope : MonoBehaviour
             _linerenderer.enabled = true;
             ridercontroller.SetTrigger("trope");
             ridercontroller.SetInteger("ropedir", 1);
+            Debug.LogError("ropehitted");
             StartCoroutine(endgrapple());
         }
     }
@@ -69,10 +97,11 @@ public class grapplingRope : MonoBehaviour
         yield return new WaitForSeconds(.5f);
         grapple = false;
         currentrope.transform.parent = null;
-        yield return new WaitForSeconds(.6f);
-        currentrope.SetActive(false);
+        yield return new WaitForSeconds(1f);
         target = null;
-        AttackTrigger.targetobject = null;
+        yield return new WaitForSeconds(1);
+        currentrope.GetComponent<BoxCollider>().enabled = true;
+        currentrope.SetActive(false);
 
     }
 }

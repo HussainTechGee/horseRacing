@@ -15,7 +15,7 @@ public class horse_distance : MonoBehaviour
     public Transform rocketStartPosition;
     public GameObject rocketPrefab;
     GameObject firedRocket;
-    float dist1, dist2, tempdist, _time = 1;
+    float dist1, dist2, tempdist;
     Animator RiderController;
     private void Start()
     {

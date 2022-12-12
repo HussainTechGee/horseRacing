@@ -3265,6 +3265,7 @@ GameObject:
   - component: {fileID: 3132181579612419045}
   - component: {fileID: 3078344492585660605}
   - component: {fileID: 3126111594902701566}
+  - component: {fileID: 6468644790590313600}
   m_Layer: 20
   m_Name: Track LF
   m_TagString: foot
@@ -3313,6 +3314,23 @@ CapsuleCollider:
   m_Height: 0.15364094
   m_Direction: 1
   m_Center: {x: -9.587887e-10, y: 0.016772218, z: -0.0000000017494829}
+--- !u!114 &6468644790590313600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3126111594902701565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d28118109a4a004ea7f53889baf6f50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StepsManager: {fileID: 4582636375823288763}
+  WaitNextStep: 0.2
+  StepAudio: {fileID: 0}
+  m_Trigger: {fileID: 3078344492585660605}
+  DebugColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &3126112859849444827
 GameObject:
   m_ObjectHideFlags: 0
@@ -3647,6 +3665,7 @@ GameObject:
   - component: {fileID: 3131728548868030497}
   - component: {fileID: 3064453247157848805}
   - component: {fileID: 3126304859531170614}
+  - component: {fileID: 807521770115484058}
   m_Layer: 20
   m_Name: Track LT
   m_TagString: foot
@@ -3695,6 +3714,23 @@ CapsuleCollider:
   m_Height: 0.12731609
   m_Direction: 1
   m_Center: {x: -5.9371716e-11, y: 0.011273129, z: -0.000043967288}
+--- !u!114 &807521770115484058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3126304859531170613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d28118109a4a004ea7f53889baf6f50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StepsManager: {fileID: 4582636375823288763}
+  WaitNextStep: 0.2
+  StepAudio: {fileID: 0}
+  m_Trigger: {fileID: 3064453247157848805}
+  DebugColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &3126307438881338341
 GameObject:
   m_ObjectHideFlags: 0
@@ -3783,6 +3819,7 @@ GameObject:
   - component: {fileID: 3131888828890397731}
   - component: {fileID: 3063872306336438101}
   - component: {fileID: 3126316176901155984}
+  - component: {fileID: 5878356427386130055}
   m_Layer: 20
   m_Name: Track RF
   m_TagString: Untagged
@@ -3831,6 +3868,23 @@ CapsuleCollider:
   m_Height: 0.14139935
   m_Direction: 1
   m_Center: {x: -2.3034823e-10, y: 0.026313936, z: -7.8421813e-10}
+--- !u!114 &5878356427386130055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3126316176901155991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d28118109a4a004ea7f53889baf6f50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StepsManager: {fileID: 4582636375823288763}
+  WaitNextStep: 0.2
+  StepAudio: {fileID: 0}
+  m_Trigger: {fileID: 3063872306336438101}
+  DebugColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &3126351395471120767
 GameObject:
   m_ObjectHideFlags: 0
@@ -4338,6 +4392,7 @@ GameObject:
   - component: {fileID: 3128280740841849811}
   - component: {fileID: 3064524362932426735}
   - component: {fileID: 3126586913506507094}
+  - component: {fileID: 6236310894331394529}
   m_Layer: 20
   m_Name: Track RT
   m_TagString: foot
@@ -4386,6 +4441,23 @@ CapsuleCollider:
   m_Height: 0.116172485
   m_Direction: 1
   m_Center: {x: 0.0000000019917752, y: 0.017247368, z: 0.0000000015420736}
+--- !u!114 &6236310894331394529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3126586913506507093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d28118109a4a004ea7f53889baf6f50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StepsManager: {fileID: 4582636375823288763}
+  WaitNextStep: 0.2
+  StepAudio: {fileID: 0}
+  m_Trigger: {fileID: 3064524362932426735}
+  DebugColor: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &3126588674253116865
 GameObject:
   m_ObjectHideFlags: 0
@@ -9924,6 +9996,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8991185100361554851}
   - component: {fileID: 6561977412396251312}
+  - component: {fileID: 4582636375823288763}
   m_Layer: 20
   m_Name: Meshes
   m_TagString: Untagged
@@ -10001,6 +10074,37 @@ LODGroup:
     - renderer: {fileID: 351964553510924886}
     - renderer: {fileID: 7656504498560946664}
   m_Enabled: 1
+--- !u!114 &4582636375823288763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8992605040230099303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 181eb898d7c8aa441b8df05cec988f7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Active: 1
+  GroundLayer:
+    UseConstant: 1
+    ConstantValue:
+      serializedVersion: 2
+      m_Bits: 1
+    Variable: {fileID: 0}
+  Tracks: {fileID: 198000013136168986, guid: 70fe502b33f22f9458eee8b3c5b3925b, type: 3}
+  Dust: {fileID: 4815518309086350511, guid: e292d7be0c9dd9448a0fbbb245f3facb, type: 3}
+  instantiateTracks: 0
+  GroundIsStatic: 0
+  StepsVolume: 0.2
+  DustParticles: 16
+  Scale: {x: 1, y: 1, z: 1}
+  sounds:
+    UseConstant: 0
+    ConstantValue: {fileID: 0}
+    Variable: {fileID: 11400000, guid: e8a7fe46436708d46acf9b4d39c7c860, type: 2}
+  trackOffset: 0.01
 --- !u!1 &8992635659053946601
 GameObject:
   m_ObjectHideFlags: 0

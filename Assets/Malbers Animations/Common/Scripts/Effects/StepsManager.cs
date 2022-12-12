@@ -1,4 +1,5 @@
 ﻿using MalbersAnimations.Scriptables;
+using MoreMountains.NiceVibrations;
 using UnityEngine;
 
 namespace MalbersAnimations
@@ -20,7 +21,7 @@ namespace MalbersAnimations
         public bool instantiateTracks = false;
         [Tooltip("Create Foot Tracks Particles only on Static GameObjects")]
         public bool GroundIsStatic = false;
-        public float StepsVolume = 0.2f;
+        public float StepsVolume = 0.4f;
         public int DustParticles = 30;
 
         [Tooltip("Scale of the dust and track particles")]
@@ -31,7 +32,7 @@ namespace MalbersAnimations
         [Tooltip("Distance to Instantiate the tracks on a terrain")]
         public float trackOffset = 0.0085f;
 
-
+        public bool my_Horse;
 
         void Awake()
         {
@@ -43,7 +44,7 @@ namespace MalbersAnimations
                 }
                 else
                 {
-                    Instance = Tracks; 
+                    Instance = Tracks;
                 }
             }
         }
@@ -62,7 +63,12 @@ namespace MalbersAnimations
             if (foot.StepAudio && !sounds.NullOrEmpty())    //If the track has an AudioSource Component and whe have some audio to play
             {
                 foot.StepAudio.clip = sounds.GetValue();    //Set the any of the Audio Clips from the list to the Feet's AudioSource Component
-                foot.StepAudio.Play();                      //Play the Audio
+                foot.StepAudio.Play();  //Play the Audio
+                if (my_Horse)
+                {
+                    MMVibrationManager.Haptic(HapticTypes.LightImpact);
+                    Debug.Log("light impact");
+                }
             }
 
 
@@ -70,7 +76,7 @@ namespace MalbersAnimations
 
             if (surface.Raycast(Ray, out RaycastHit hit, 1))
             {
-                var TrackPosition = foot.transform.position;     TrackPosition.y += trackOffset;
+                var TrackPosition = foot.transform.position; TrackPosition.y += trackOffset;
                 var TrackRotation = (Quaternion.FromToRotation(-foot.transform.forward, hit.normal) * foot.transform.rotation);
 
                 if (Dust)
@@ -115,7 +121,7 @@ namespace MalbersAnimations
                     }
                 }
 
-                
+
             }
         }
 

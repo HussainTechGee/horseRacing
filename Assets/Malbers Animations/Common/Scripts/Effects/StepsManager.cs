@@ -21,7 +21,7 @@ namespace MalbersAnimations
         public bool instantiateTracks = false;
         [Tooltip("Create Foot Tracks Particles only on Static GameObjects")]
         public bool GroundIsStatic = false;
-        public float StepsVolume = 0.4f;
+        public float StepsVolume = 0.2f;
         public int DustParticles = 30;
 
         [Tooltip("Scale of the dust and track particles")]
@@ -67,7 +67,7 @@ namespace MalbersAnimations
                 if (my_Horse)
                 {
                     MMVibrationManager.Haptic(HapticTypes.LightImpact);
-                    Debug.Log("light impact");
+                    // Debug.Log("light impact");
                 }
             }
 

@@ -7,8 +7,9 @@ public class finishcontroller : MonoBehaviour
     [SerializeField] GameObject fireworks;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "myfoot")
+        if (other.gameObject.tag == "foot")
         {
+            Time.timeScale = 1;
             fireworks.SetActive(true);
         }
     }

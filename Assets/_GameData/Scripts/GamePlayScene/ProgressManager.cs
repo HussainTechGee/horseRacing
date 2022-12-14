@@ -15,13 +15,13 @@ public class ProgressManager : MonoBehaviour
     private float maxdistance, dis1, dis2;
     public float distancetraveled;
     public GameObject playercanvas;
-    public Image positonimage;
+    public Image positionimage;
     public Sprite[] positions;
 
     void Start()
     {
         playercanvas = transform.GetChild(0).GetChild(4).GetChild(1).GetChild(2).gameObject;
-        positonimage = playercanvas.transform.GetChild(0).GetComponent<Image>();
+        positionimage = playercanvas.transform.GetChild(0).GetComponent<Image>();
         //     if (instance == null)
         //     {
         //         instance = this;
@@ -59,8 +59,8 @@ public class ProgressManager : MonoBehaviour
         if (GetComponent<ProgressManager>().position != 0 && GetComponent<ProgressManager>().position <= 3)
         {
             // GetComponent<ProgressManager>().playercanvas.SetActive(true);
-            GetComponent<ProgressManager>().positonimage.gameObject.SetActive(true);
-            GetComponent<ProgressManager>().positonimage.sprite = positions[position - 1];
+            GetComponent<ProgressManager>().positionimage.gameObject.SetActive(true);
+            GetComponent<ProgressManager>().positionimage.sprite = positions[position - 1];
         }
     }
     private float getDistance()

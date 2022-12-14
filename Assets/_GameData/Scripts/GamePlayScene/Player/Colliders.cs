@@ -33,31 +33,55 @@ public class Colliders : MonoBehaviour
         {
             UIManager.instance.skillButton[0].SetActive(true);
             other.gameObject.SetActive(false);
-            StartCoroutine(activeSkillPick(other.gameObject));
+            StartCoroutine(activeSkillPick(other.gameObject, 1f));
             skillbuttoncontroller.SetTrigger("freez");
         }
         else if (other.gameObject.CompareTag("boost"))
         {
             UIManager.instance.skillButton[1].SetActive(true);
             other.gameObject.SetActive(false);
-            StartCoroutine(activeSkillPick(other.gameObject));
+            StartCoroutine(activeSkillPick(other.gameObject, 1f));
             skillbuttoncontroller.SetTrigger("boost");
         }
         else if (other.gameObject.CompareTag("shield"))
         {
             UIManager.instance.skillButton[2].SetActive(true);
             other.gameObject.SetActive(false);
-            StartCoroutine(activeSkillPick(other.gameObject));
+            StartCoroutine(activeSkillPick(other.gameObject, 1f));
             skillbuttoncontroller.SetTrigger("shield");
         }
         else if (other.gameObject.CompareTag("rocketpick"))
         {
             UIManager.instance.skillButton[3].SetActive(true);
             other.gameObject.SetActive(false);
-            StartCoroutine(activeSkillPick(other.gameObject));
+            StartCoroutine(activeSkillPick(other.gameObject, 1f));
             skillbuttoncontroller.SetTrigger("fire");
         }
+        else if (other.gameObject.CompareTag("fence"))
+        {
+            Debug.Log("inHurdle");
+            // gameObject.transform.parent.GetComponent<Animator>().SetTrigger("death");
+            // if (!transform.parent.GetComponent<moveHorseSample>().missilehit)
+            {
+                // transform.parent.GetComponent<moveHorseSample>().missilehit = true;
+                // explosion.SetActive(true);
+                // explosion.transform.GetChild(0).gameObject.SetActive(true);
+                // explosion.transform.GetChild(1).gameObject.SetActive(true);
+                // explosion.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+                // explosion.transform.GetChild(1).GetComponent<ParticleSystem>().Play();
+                missilehit.instance.targetobj = gameObject.transform.parent.gameObject;
+                missilehit.instance.explosion = explosion;
+                missilehit.instance.rockethit = true;
+                other.gameObject.GetComponent<BoxCollider>().enabled = false;
+                StartCoroutine(activatecollider(other.gameObject, .5f));
+            }
+        }
 
+    }
+    IEnumerator activatecollider(GameObject current, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        current.GetComponent<BoxCollider>().enabled = true;
     }
     private void OnCollisionStay(Collision other)
     {
@@ -86,6 +110,7 @@ public class Colliders : MonoBehaviour
     {
         if (other.gameObject.CompareTag("finish"))
         {
+
             gameObject.transform.parent.GetComponent<moveHorseSample>().win = true;
             StartCoroutine(moveHorseSample.instance.playerWin());
 
@@ -94,22 +119,26 @@ public class Colliders : MonoBehaviour
         {
             // Debug.Log(gameObject.transform.parent.name);
             // Debug.Log("rockethit");
-            explosion.SetActive(true);
-            explosion.transform.GetChild(0).gameObject.SetActive(true);
-            explosion.transform.GetChild(1).gameObject.SetActive(true);
-            explosion.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
-            explosion.transform.GetChild(1).GetComponent<ParticleSystem>().Play();
-            missilehit.instance.targetobj = gameObject.transform.parent.gameObject;
-            missilehit.instance.explosion = explosion;
-            missilehit.instance.rockethit = true;
+            if (!transform.parent.GetComponent<moveHorseSample>().missilehit && !transform.parent.GetComponent<moveHorseSample>().shield)
+            {
+                transform.parent.GetComponent<moveHorseSample>().missilehit = true;
+                explosion.SetActive(true);
+                explosion.transform.GetChild(0).gameObject.SetActive(true);
+                explosion.transform.GetChild(1).gameObject.SetActive(true);
+                explosion.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+                explosion.transform.GetChild(1).GetComponent<ParticleSystem>().Play();
+                missilehit.instance.targetobj = gameObject.transform.parent.gameObject;
+                missilehit.instance.explosion = explosion;
+                missilehit.instance.rockethit = true;
+            }
             other.gameObject.transform.parent.gameObject.SetActive(false);
-
         }
+
     }
 
-    private IEnumerator activeSkillPick(GameObject current)
+    private IEnumerator activeSkillPick(GameObject current, float duration)
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(duration);
         current.gameObject.SetActive(true);
     }
 }

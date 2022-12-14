@@ -14,7 +14,8 @@ public class grapplingRope : MonoBehaviour
     [SerializeField] private Transform linestartpos;
     [SerializeField] private bool grapple;
     [SerializeField] private Animator ridercontroller;
-    [SerializeField] AttackTriggerandler AttackTrigger;
+    [SerializeField] private AttackTriggerandler AttackTrigger;
+    [SerializeField] private float minDist = 50, maxDist = 500;
     float dist1, dist2, tempdist;
 
     GameObject currentrope;
@@ -52,21 +53,26 @@ public class grapplingRope : MonoBehaviour
     public void startgrapple()
     {
         bool firsttime = false;
+        float currentDist;
         dist1 = path.path.GetClosestDistanceAlongPath(gameObject.transform.GetChild(0).position);
 
         for (int i = 0; i < horses.Length; i++)
         {
+            currentDist = Vector3.Distance(horses[i].transform.GetChild(0).position, gameObject.transform.GetChild(0).position);
+
             dist2 = path.path.GetClosestDistanceAlongPath(horses[i].transform.GetChild(0).position);
             if (dist2 > dist1)
             {
-                if (!firsttime)
+                if (!firsttime && currentDist > minDist && currentDist < maxDist)
                 {
+                    Debug.Log(currentDist);
                     tempdist = dist2;
                     target = horses[i].transform.GetChild(0).GetChild(13);
                     firsttime = true;
                 }
-                else if (tempdist > dist2)
+                else if (tempdist > dist2 && currentDist > minDist && currentDist < maxDist)
                 {
+                    Debug.Log(currentDist);
                     tempdist = dist2;
                     target = horses[i].transform.GetChild(0).GetChild(13);
                 }

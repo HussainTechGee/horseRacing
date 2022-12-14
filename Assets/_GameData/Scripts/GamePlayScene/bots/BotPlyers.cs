@@ -10,7 +10,7 @@ public class BotPlyers : MonoBehaviour
     public PathCreator pathCreator;
     public float speed, boostFactor, startSpeed;
     [SerializeField] float distancetravled;
-    public bool freez, boost, win, shield;
+    public bool freez, boost, win, shield, missilehit;
     public GameObject shieldobj, icecubeObj, boostObj;
     bool start = true, firstclick;
     // Start is called before the first frame update

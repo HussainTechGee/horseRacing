@@ -10,7 +10,7 @@ public class moveHorseSample : MonoBehaviour
     public Animator HorseController, RiderController;
     public GameObject horsewithrider, shieldobject, IcecubeObj, boostObj;
     public float speed, turnspeed, turnduration, boostfactor;
-    public bool freez, boost, win, incollider, shield;
+    public bool freez, boost, win, incollider, shield, missilehit;
     public bool start;
     public bool isTilt;
     bool sprint, firstclick;
@@ -279,7 +279,7 @@ public class moveHorseSample : MonoBehaviour
         if (!alreadychecked)
         {
 
-            StartCoroutine(cutSceneScript.instance.onWin());
+
 
             alreadychecked = true;
         }

@@ -15,17 +15,32 @@ public class cutSceneScript : MonoBehaviour
         { instance = this; }
         StartCoroutine(AnimateScene());
     }
+    // public IEnumerator onWin()
+    // {
+    //     yield return new WaitForSeconds(1f);
+    //     playercamera.SetActive(false);
+    //     blackpanel.SetActive(true);
+    //     yield return new WaitForSeconds(.2f);
+    //     winpanel.SetActive(true);
+    //     yield return new WaitForSeconds(.4f);
+    //     winpanel.transform.GetChild(1).gameObject.SetActive(true);
+    //     yield return new WaitForSeconds(6f);
+    //     // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    // }
     public IEnumerator onWin()
     {
-        yield return new WaitForSeconds(1f);
         playercamera.SetActive(false);
+        // yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.5f);
         blackpanel.SetActive(true);
-        yield return new WaitForSeconds(.2f);
         winpanel.SetActive(true);
-        yield return new WaitForSeconds(.4f);
-        winpanel.transform.GetChild(1).gameObject.SetActive(true);
-        yield return new WaitForSeconds(6f);
-        // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        winpanel.transform.GetChild(0).gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        //  blackpanel.SetActive(true);
+        Time.timeScale = 0.1f;
+
+
+
     }
     private IEnumerator AnimateScene()
     {
@@ -69,6 +84,8 @@ public class cutSceneScript : MonoBehaviour
         yield return new WaitForSeconds(1f);
         blackpanel.SetActive(true);
         Scenes[2].SetActive(true);
+        yield return new WaitForSeconds(.2f);
+        Scenes[2].SetActive(false);
         yield return new WaitForSeconds(.2f);
         playercamera.SetActive(true);
         yield return new WaitForSeconds(1f);

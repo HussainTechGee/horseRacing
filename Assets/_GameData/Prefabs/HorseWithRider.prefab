@@ -2527,7 +2527,6 @@ GameObject:
   - component: {fileID: 8958956013973904183}
   - component: {fileID: 2167587942544384954}
   - component: {fileID: 2167587942544384955}
-  - component: {fileID: 7984322133663099385}
   m_Layer: 20
   m_Name: HorseWithRider
   m_TagString: Animal
@@ -2721,19 +2720,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 0}
   skillbuttoncontroller: {fileID: 0}
---- !u!114 &7984322133663099385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2167587942544384953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62359d80fdc0e4315ab6331b78ec5b90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  kinematicForParticles: 0
 --- !u!1 &2410708162296438220
 GameObject:
   m_ObjectHideFlags: 0
@@ -10097,14 +10083,15 @@ MonoBehaviour:
   Dust: {fileID: 4815518309086350511, guid: e292d7be0c9dd9448a0fbbb245f3facb, type: 3}
   instantiateTracks: 0
   GroundIsStatic: 0
-  StepsVolume: 0.2
+  StepsVolume: 1
   DustParticles: 16
   Scale: {x: 1, y: 1, z: 1}
   sounds:
     UseConstant: 0
     ConstantValue: {fileID: 0}
-    Variable: {fileID: 11400000, guid: e8a7fe46436708d46acf9b4d39c7c860, type: 2}
+    Variable: {fileID: 11400000, guid: 9429dac6aaaf08c4896bbac59517c08e, type: 2}
   trackOffset: 0.01
+  my_Horse: 0
 --- !u!1 &8992635659053946601
 GameObject:
   m_ObjectHideFlags: 0

@@ -84,7 +84,9 @@ public class horse_distance : MonoBehaviour
     Rigidbody mfiredRocket;
     IEnumerator ResetRigidbodyAndDisable(Rigidbody rb, GameObject rocketobj)
     {
-        yield return new WaitForSeconds(15f);
+        yield return new WaitForSeconds(1f);
+        gameObject.transform.GetChild(0).GetComponent<BoxCollider>().enabled = true;
+        yield return new WaitForSeconds(14f);
         if (mfiredRocket != null)
         {
             rb.velocity = Vector3.zero;
@@ -96,7 +98,7 @@ public class horse_distance : MonoBehaviour
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
         }
-        gameObject.transform.GetChild(0).GetComponent<BoxCollider>().enabled = true;
+
 
         rocketobj.SetActive(false);
     }

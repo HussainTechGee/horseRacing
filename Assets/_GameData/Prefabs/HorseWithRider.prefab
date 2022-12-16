@@ -986,7 +986,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &444370692775233130
 Transform:
   m_ObjectHideFlags: 0
@@ -1067,7 +1067,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &444370692775233132
 Transform:
   m_ObjectHideFlags: 0
@@ -1634,8 +1634,9 @@ Animator:
   m_LinearVelocityBlending: 0
   m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
     are already bound by a Humanoid avatar. These transforms can only be changed
-    by Humanoid clips.\n\tTransform 'R_R Hand'\n\tTransform 'R_R Hand'\n\tFrom animation
-    clip 'Rider Gun Fire N R'"
+    by Humanoid clips.\n\tTransform 'R_R Hand'\n\tTransform 'R_R Hand'\n\tTransform
+    'R_R UpperArm'\n\tTransform 'R_R UpperArm'\n\tFrom animation clip 'newropewaving'\n\tFrom
+    animation clip 'Rider Gun Fire N R'"
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -1701,7 +1702,7 @@ Transform:
   m_Children:
   - {fileID: 444370692775233508}
   m_Father: {fileID: 444370692775233512}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &444370692774943688
 GameObject:
@@ -1732,6 +1733,7 @@ Transform:
   m_Children:
   - {fileID: 444370692775233132}
   - {fileID: 444370692775233130}
+  - {fileID: 8455613051985255944}
   - {fileID: 444370692775233510}
   m_Father: {fileID: 444370692775233060}
   m_RootOrder: 2
@@ -2556,7 +2558,6 @@ Transform:
   - {fileID: 6440193080824644558}
   - {fileID: 9175053219733414102}
   - {fileID: 6420358804305235502}
-  - {fileID: 8455613051985255944}
   - {fileID: 2044542784506447566}
   - {fileID: 3671941027557619310}
   m_Father: {fileID: 0}
@@ -2746,14 +2747,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2410708162296438220}
-  m_LocalRotation: {x: 0.00000008195638, y: -0, z: -0.42951992, w: 0.9030574}
-  m_LocalPosition: {x: 0.25, y: 1.6015699, z: 0.338}
-  m_LocalScale: {x: 0.049999993, y: 0.049999993, z: 0.049999997}
+  m_LocalRotation: {x: -0.7007415, y: -0.06473206, z: 0.3816637, w: 0.5992528}
+  m_LocalPosition: {x: 0.101, y: 0.1, z: -0.193}
+  m_LocalScale: {x: 0.049999993, y: 0.049999986, z: 0.05000001}
   m_Children:
   - {fileID: 7546472788238278977}
-  m_Father: {fileID: 2170292512527432081}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: -95.798, y: 90.004, z: -50.893005}
+  m_Father: {fileID: 444370692775233512}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: -127.774, y: 90.893, z: -63.48999}
 --- !u!33 &7223547940450938338
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3295,7 +3296,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 3126111594902701565}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.06335089
   m_Height: 0.15364094
   m_Direction: 1
@@ -3313,7 +3314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_StepsManager: {fileID: 4582636375823288763}
-  WaitNextStep: 0.2
+  WaitNextStep: 0.3
   StepAudio: {fileID: 0}
   m_Trigger: {fileID: 3078344492585660605}
   DebugColor: {r: 0, g: 1, b: 1, a: 1}
@@ -3695,7 +3696,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 3126304859531170613}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.06365803
   m_Height: 0.12731609
   m_Direction: 1
@@ -3713,7 +3714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_StepsManager: {fileID: 4582636375823288763}
-  WaitNextStep: 0.2
+  WaitNextStep: 0.1
   StepAudio: {fileID: 0}
   m_Trigger: {fileID: 3064453247157848805}
   DebugColor: {r: 0, g: 1, b: 1, a: 1}
@@ -3849,7 +3850,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 3126316176901155991}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.063874505
   m_Height: 0.14139935
   m_Direction: 1
@@ -4422,7 +4423,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 3126586913506507093}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.058086235
   m_Height: 0.116172485
   m_Direction: 1
@@ -4440,7 +4441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_StepsManager: {fileID: 4582636375823288763}
-  WaitNextStep: 0.2
+  WaitNextStep: 0.4
   StepAudio: {fileID: 0}
   m_Trigger: {fileID: 3064524362932426735}
   DebugColor: {r: 0, g: 1, b: 1, a: 1}
@@ -5248,7 +5249,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2170292512527432081}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 56.85, y: -77.399, z: -51.766}
 --- !u!1 &6645802852610336777
 GameObject:
@@ -5514,7 +5515,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2170292512527432081}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -20.36}
 --- !u!1 &8031123417256475740
 GameObject:

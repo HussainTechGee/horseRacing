@@ -67,14 +67,14 @@ public class grapplingRope : MonoBehaviour
                 {
                     Debug.Log(currentDist);
                     tempdist = dist2;
-                    target = horses[i].transform.GetChild(0).GetChild(13);
+                    target = horses[i].transform.GetChild(0).GetChild(12);
                     firsttime = true;
                 }
                 else if (tempdist > dist2 && currentDist > minDist && currentDist < maxDist)
                 {
                     Debug.Log(currentDist);
                     tempdist = dist2;
-                    target = horses[i].transform.GetChild(0).GetChild(13);
+                    target = horses[i].transform.GetChild(0).GetChild(12);
                 }
 
 

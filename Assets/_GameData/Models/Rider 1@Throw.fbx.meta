@@ -1,16 +1,17 @@
 fileFormatVersion: 2
-guid: 9ac1718ddd7679f45a5238a571f8488f
+guid: 0df857817f1086a478b8fd32f7ec88c0
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable: []
-  externalObjects:
+  internalIDToNameTable:
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Polished_Concrete_New
-    second: {fileID: 2100000, guid: 2b19103ec95ec5445b086d39107ea28a, type: 2}
+      74: 1827226128182048838
+    second: Take 001
+  - first:
+      74: -203655887218126122
+    second: mixamo.com
+  externalObjects: {}
   materials:
-    materialImportMode: 1
+    materialImportMode: 2
     materialName: 0
     materialSearch: 1
     materialLocation: 1

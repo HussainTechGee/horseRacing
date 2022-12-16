@@ -4,8 +4,8 @@ using UnityEngine;
 public class missilehit : MonoBehaviour
 {
     public static missilehit instance;
-    public GameObject targetobj, explosion;
-    public bool rockethit;
+    [HideInInspector] public GameObject targetobj, explosion;
+    [HideInInspector] public bool rockethit;
     bool isshield, isfreez, ishit;
     private void Start()
     {
@@ -49,32 +49,43 @@ public class missilehit : MonoBehaviour
             yield return new WaitForSeconds(2.7f);
             explo.SetActive(false);
             target.transform.GetChild(0).GetChild(9).gameObject.SetActive(false);
-            target.transform.GetChild(0).gameObject.SetActive(false);
+            target.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+            target.transform.GetChild(0).GetChild(4).gameObject.SetActive(false);
             yield return new WaitForSeconds(.3f);
-            target.transform.GetChild(0).gameObject.SetActive(true);
+            target.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
             target.transform.GetChild(0).GetChild(4).gameObject.SetActive(true);
             target.transform.GetChild(0).GetComponent<Animator>().SetTrigger("idle");
             target.transform.GetChild(0).GetChild(4).GetComponent<Animator>().SetTrigger("idle");
             yield return new WaitForSeconds(.3f);
-            target.transform.GetChild(0).gameObject.SetActive(false);
+            target.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+            target.transform.GetChild(0).GetChild(4).gameObject.SetActive(false);
             yield return new WaitForSeconds(.3f);
-            target.transform.GetChild(0).gameObject.SetActive(true);
+            target.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+            target.transform.GetChild(0).GetChild(4).gameObject.SetActive(true);
             yield return new WaitForSeconds(.3f);
-            target.transform.GetChild(0).gameObject.SetActive(false);
+            target.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+            target.transform.GetChild(0).GetChild(4).gameObject.SetActive(false);
             yield return new WaitForSeconds(.3f);
-            target.transform.GetChild(0).gameObject.SetActive(true);
+            target.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+            target.transform.GetChild(0).GetChild(4).gameObject.SetActive(true);
             yield return new WaitForSeconds(.3f);
-            target.transform.GetChild(0).gameObject.SetActive(false);
+            target.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+            target.transform.GetChild(0).GetChild(4).gameObject.SetActive(false);
             yield return new WaitForSeconds(.3f);
-            target.transform.GetChild(0).gameObject.SetActive(true);
+            target.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+            target.transform.GetChild(0).GetChild(4).gameObject.SetActive(true);
             yield return new WaitForSeconds(.3f);
-            target.transform.GetChild(0).gameObject.SetActive(false);
+            target.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+            target.transform.GetChild(0).GetChild(4).gameObject.SetActive(false);
             yield return new WaitForSeconds(.3f);
-            target.transform.GetChild(0).gameObject.SetActive(true);
+            target.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+            target.transform.GetChild(0).GetChild(4).gameObject.SetActive(true);
             yield return new WaitForSeconds(.3f);
-            target.transform.GetChild(0).gameObject.SetActive(false);
+            target.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+            target.transform.GetChild(0).GetChild(4).gameObject.SetActive(false);
             yield return new WaitForSeconds(.3f);
-            target.transform.GetChild(0).gameObject.SetActive(true);
+            target.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+            target.transform.GetChild(0).GetChild(4).gameObject.SetActive(true);
             if (target.GetComponent<BotPlyers>() != null)
             {
                 target.GetComponent<BotPlyers>().missilehit = false;

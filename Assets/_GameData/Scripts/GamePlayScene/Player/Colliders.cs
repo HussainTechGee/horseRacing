@@ -59,22 +59,22 @@ public class Colliders : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("fence"))
         {
-            Debug.Log("inHurdle");
-            // gameObject.transform.parent.GetComponent<Animator>().SetTrigger("death");
-            // if (!transform.parent.GetComponent<moveHorseSample>().missilehit)
+            if (!transform.parent.GetComponent<moveHorseSample>().missilehit)
             {
-                // transform.parent.GetComponent<moveHorseSample>().missilehit = true;
-                // explosion.SetActive(true);
-                // explosion.transform.GetChild(0).gameObject.SetActive(true);
-                // explosion.transform.GetChild(1).gameObject.SetActive(true);
-                // explosion.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
-                // explosion.transform.GetChild(1).GetComponent<ParticleSystem>().Play();
+                gameObject.transform.parent.GetComponent<moveHorseSample>().HorseController.SetTrigger("jump");
+                gameObject.transform.parent.GetComponent<moveHorseSample>().RiderController.SetTrigger("jump");
                 missilehit.instance.targetobj = gameObject.transform.parent.gameObject;
                 missilehit.instance.explosion = explosion;
                 missilehit.instance.rockethit = true;
                 other.gameObject.GetComponent<BoxCollider>().enabled = false;
                 StartCoroutine(activatecollider(other.gameObject, .5f));
             }
+        }
+        else if (other.gameObject.CompareTag("rope"))
+        {
+            UIManager.instance.skillButton[4].SetActive(true);
+            other.gameObject.SetActive(false);
+            StartCoroutine(activeSkillPick(other.gameObject, 1f));
         }
 
     }

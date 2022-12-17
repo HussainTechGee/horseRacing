@@ -36,6 +36,7 @@ public class missilehit : MonoBehaviour
         }
         if (!isshield && !isfreez)
         {
+            yield return new WaitForSeconds(.2f);
             target.transform.GetChild(0).GetComponent<Animator>().SetTrigger("death");
             if (target.GetComponent<BotPlyers>() != null)
             {
@@ -52,11 +53,14 @@ public class missilehit : MonoBehaviour
             target.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
             target.transform.GetChild(0).GetChild(4).gameObject.SetActive(false);
             yield return new WaitForSeconds(.3f);
-            target.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
-            target.transform.GetChild(0).GetChild(4).gameObject.SetActive(true);
             target.transform.GetChild(0).GetComponent<Animator>().SetTrigger("idle");
             target.transform.GetChild(0).GetChild(4).GetComponent<Animator>().SetTrigger("idle");
+            yield return new WaitForSeconds(.2f);
+            target.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+            target.transform.GetChild(0).GetChild(4).gameObject.SetActive(true);
+
             yield return new WaitForSeconds(.3f);
+
             target.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
             target.transform.GetChild(0).GetChild(4).gameObject.SetActive(false);
             yield return new WaitForSeconds(.3f);

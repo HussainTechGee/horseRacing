@@ -281,7 +281,7 @@ ModelImporter:
       name: H_Jump_Sprint
       takeName: Take 001
       internalID: 0
-      firstFrame: 0
+      firstFrame: 7
       lastFrame: 48
       wrapMode: 0
       orientationOffsetY: 0
@@ -423,8 +423,7 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 9c2f1ed66b991284c9491f8fd53b213e,
-    type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 9c2f1ed66b991284c9491f8fd53b213e, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1

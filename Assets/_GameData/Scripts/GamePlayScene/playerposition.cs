@@ -7,17 +7,25 @@ using PathCreation;
 
 public class playerposition : MonoBehaviour
 {
+    public static playerposition instance;
     [SerializeField] private Slider[] sliders;
-    [SerializeField] private Transform[] players;
+    [SerializeField] private GameObject[] players;
     [SerializeField] private PathCreator path;
-    // [SerializeField] private float duration = 0.5f;
     [SerializeField] Transform pathPoints, pathPoints2;
-    private Transform endPoint, startPoint;
-    private float maxdistance, dis1, dis2;
-    [SerializeField] private float[] distancetraveled;
     [SerializeField] private GameObject[] progresPositions;
-    [SerializeField] private float[] tempsortedarray;
-    [SerializeField] private int[] templist;
+    private Transform endPoint, startPoint;
+    private float[] distancetraveled = new float[6];
+    private float[] tempsortedarray = new float[6];
+    private GameObject[] tempplayersList = new GameObject[6];
+    private float maxdistance, dis1, dis2;
+    bool trysort;
+    float tempval = 0;
+    int index = 0;
+
+    private void Awake()
+    {
+        instance = this;
+    }
     private void Start()
     {
         for (int i = 0; i < pathPoints.childCount; i++)
@@ -38,23 +46,21 @@ public class playerposition : MonoBehaviour
         maxdistance = (dis1 + dis2) / 2;
         for (int i = 0; i < sliders.Length; i++)
         {
+            tempplayersList[i] = players[i];
             sliders[i].value = (getDistance(i) / maxdistance);
             tempsortedarray[i] = distancetraveled[i];
         }
-        // Invoke("sort", 1f);
-
-        // StartCoroutine(checkValue());
+        StartCoroutine(enablesort());
 
     }
-    int temp = 0;
-    float tempval = 0;
+
     float getDistance(int i)
     {
-        distancetraveled[i] = path.path.GetClosestDistanceAlongPath(players[i].position);
+        distancetraveled[i] = path.path.GetClosestDistanceAlongPath(players[i].transform.position);
 
         return distancetraveled[i];
     }
-    [SerializeField] bool trysort;
+
     private void Update()
     {
         if (trysort)
@@ -62,8 +68,9 @@ public class playerposition : MonoBehaviour
             for (int k = 0; k < tempsortedarray.Length; k++)
             {
                 tempsortedarray[k] = distancetraveled[k];
+                tempplayersList[k] = players[k];
             }
-            sort();
+            Invoke("sort", 0.05f);
         }
 
     }
@@ -71,42 +78,29 @@ public class playerposition : MonoBehaviour
     {
         checkValue();
     }
-    int index = 0;
-    // private IEnumerator checkValue()
+
     void checkValue()
     {
-
         if (index >= players.Length)
         {
             index = 0;
         }
-        // yield return new WaitForSeconds(0.0000001f);
         if (moveHorseSample.instance.start)
         {
             if (distancetraveled[index] < maxdistance)
             {
-
                 float distance = (getDistance(index) / maxdistance);
-                // tempsortedarray[index] = distancetraveled[index];
-
-
                 SetValue(distance, index);
             }
             index++;
         }
-
-        // StartCoroutine(checkValue());
     }
-
     private void SetValue(float p, int i)
     {
         sliders[i].value = p;
-
-
     }
     void sort()
     {
-
         for (int j = 0; j < tempsortedarray.Length; j++)
         {
             int maxind = j;
@@ -117,17 +111,25 @@ public class playerposition : MonoBehaviour
                     maxind = k;
                 }
             }
-            templist[j] = maxind;
+            GameObject tempgameObject = tempplayersList[maxind];
+            tempplayersList[maxind] = tempplayersList[j];
+            tempplayersList[j] = tempgameObject;
+
             tempval = tempsortedarray[maxind];
             tempsortedarray[maxind] = tempsortedarray[j];
             tempsortedarray[j] = tempval;
 
         }
-        for (int i = 0; i < templist.Length; i++)
+        for (int j = 0; j < tempplayersList.Length; j++)
         {
-            progresPositions[i].transform.GetChild(1).GetComponent<Text>().text = players[templist[i]].parent.gameObject.name;
-
+            progresPositions[j].transform.GetChild(1).GetChild(0).GetComponent<Text>().text = tempplayersList[j].transform.parent.gameObject.name;
         }
         trysort = false;
+    }
+    private IEnumerator enablesort()
+    {
+        yield return new WaitForSeconds(0.1f);
+        trysort = true;
+        StartCoroutine(enablesort());
     }
 }

@@ -35,7 +35,26 @@ public class botCollisions : MonoBehaviour
             other.gameObject.SetActive(false);
             StartCoroutine(activeSkillPick(other.gameObject));
         }
+        else if (other.gameObject.CompareTag("fence"))
+        {
 
+            if (!transform.parent.GetComponent<BotPlyers>().missilehit)
+            {
+                gameObject.transform.parent.GetComponent<BotPlyers>().botAnimator.SetTrigger("jump");
+                gameObject.transform.parent.GetComponent<BotPlyers>().RiderController.SetTrigger("jump");
+                missilehit.instance.targetobj = gameObject.transform.parent.gameObject;
+                missilehit.instance.explosion = explosion;
+                missilehit.instance.rockethit = true;
+                other.gameObject.GetComponent<BoxCollider>().enabled = false;
+                StartCoroutine(activatecollider(other.gameObject, .5f));
+            }
+        }
+
+    }
+    IEnumerator activatecollider(GameObject current, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        current.GetComponent<BoxCollider>().enabled = true;
     }
     private void OnTriggerEnter(Collider other)
     {

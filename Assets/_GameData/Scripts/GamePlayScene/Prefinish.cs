@@ -11,7 +11,7 @@ public class Prefinish : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.gameObject.CompareTag("foot"))
+        if (other.gameObject.CompareTag("myfoot"))
         {
             StartCoroutine(cutSceneScript.instance.onWin());
             transform.parent.GetChild(0).gameObject.SetActive(false);

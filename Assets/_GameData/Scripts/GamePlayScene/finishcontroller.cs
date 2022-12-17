@@ -7,10 +7,12 @@ public class finishcontroller : MonoBehaviour
     [SerializeField] GameObject fireworks;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "foot")
+        if (other.gameObject.tag == "myfoot")
         {
             Time.timeScale = 1;
             fireworks.SetActive(true);
+            cutSceneScript.instance.winpanel.transform.GetChild(0).gameObject.SetActive(false);
+            cutSceneScript.instance.winpanel.transform.GetChild(1).gameObject.SetActive(true);
         }
     }
     private void OnTriggerExit(Collider other)

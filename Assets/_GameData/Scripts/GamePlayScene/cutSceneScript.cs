@@ -7,7 +7,7 @@ public class cutSceneScript : MonoBehaviour
 {
     public static cutSceneScript instance;
     [SerializeField] GameObject[] Scenes;
-    [SerializeField] GameObject winpanel;
+    [SerializeField] public GameObject winpanel;
     [SerializeField] GameObject playercamera, blackpanel;
     private void Start()
     {
@@ -38,9 +38,6 @@ public class cutSceneScript : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         //  blackpanel.SetActive(true);
         Time.timeScale = 0.1f;
-
-
-
     }
     private IEnumerator AnimateScene()
     {

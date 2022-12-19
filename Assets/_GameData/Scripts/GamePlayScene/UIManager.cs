@@ -12,7 +12,9 @@ public class UIManager : MonoBehaviour
     public GameObject countingPanel, starting_gates, finishLine, taportilt, skipbutton;
     public Sprite[] counting;
     public GameObject[] skillButton;
-
+    [SerializeField] private GameObject[] environments;
+    public TerrainLayer mainTerrainLayer;
+    public Texture2D[] terrainTextures;
     private void Start()
     {
         if (instance == null)
@@ -20,6 +22,8 @@ public class UIManager : MonoBehaviour
             instance = this;
         }
         StartCoroutine(timePanel());
+        environments[PlayerPrefs.GetInt("environment")].SetActive(true);
+        mainTerrainLayer.diffuseTexture = terrainTextures[PlayerPrefs.GetInt("environment")];
     }
 
     IEnumerator timePanel()

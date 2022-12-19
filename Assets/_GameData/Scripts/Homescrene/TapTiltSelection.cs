@@ -10,4 +10,8 @@ public class TapTiltSelection : MonoBehaviour
     {
         PlayerPrefs.SetInt("tilt", istilt);
     }
+    public void onclickenvironment(int number)
+    {
+        PlayerPrefs.SetInt("environment", number);
+    }
 }
